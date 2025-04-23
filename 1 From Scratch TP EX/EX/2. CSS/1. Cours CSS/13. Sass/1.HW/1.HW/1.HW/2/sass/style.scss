@@ -1,10 +1,43 @@
 @import './libs/reset.scss';
 
 body {
-    background-color: #125e5a;
-    color: #78c488;
+    background-color: #ffffff;
+    color: #000000;
 }
 
 p {
     margin: 1rem;
+}
+
+.table {
+    width: 100%;
+
+    td {
+        border: 1px solid #ccc;
+        color: #fff;
+    }
+
+    thead {
+       background: {
+        color: #000;
+        repeat: no-repeat;
+       }
+       color: #fff;
+       
+}
+
+.btn {
+    background: #3134f3;
+
+    &:hover {
+        background: #0f0781;
+    }
+
+    .theme-vert & {
+        background: #15ad15;
+    }
+
+    @media only screen and (max-width: 1200px) {
+        padding: 10px;
+    }
 }
