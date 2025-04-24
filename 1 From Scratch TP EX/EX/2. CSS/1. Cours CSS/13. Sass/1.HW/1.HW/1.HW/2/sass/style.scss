@@ -18,12 +18,10 @@ p {
     }
 
     thead {
-       background: {
-        color: #000;
-        repeat: no-repeat;
-       }
-       color: #fff;
-       
+        background-color: #000;
+        background-repeat: no-repeat;
+        color: #fff;
+    }
 }
 
 .btn {
@@ -33,6 +31,7 @@ p {
         background: #0f0781;
     }
 
+    // S'applique si .btn est dans un parent .theme-vert
     .theme-vert & {
         background: #15ad15;
     }
@@ -41,3 +40,4 @@ p {
         padding: 10px;
     }
 }
+
