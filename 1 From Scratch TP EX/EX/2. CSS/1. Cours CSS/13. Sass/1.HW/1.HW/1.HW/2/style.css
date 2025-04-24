@@ -44,8 +44,8 @@ td, th {
 }
 
 body {
-  background-color: #ffffff;
-  color: #000000;
+  background-color: #000000;
+  font-family: serif;
 }
 
 p {
@@ -65,19 +65,25 @@ p {
   color: #fff;
 }
 
-.btn {
-  background: #3134f3;
+.btn, .btn-danger {
+  border-radius: 3px;
+  padding: 5px 12px;
 }
-.btn:hover {
+
+.btn, .btn-danger {
+  text-decoration: none;
+  background: #8282ff;
+  color: #fff;
+}
+.btn:hover, .btn-danger:hover {
   background: #0f0781;
 }
-.theme-vert .btn {
-  background: #15ad15;
+
+.btn-danger {
+  background: #ff3535;
 }
-@media only screen and (max-width: 1200px) {
-  .btn {
-    padding: 10px;
-  }
+.btn-danger:hover {
+  background: #b90000;
 }
 
 /*# sourceMappingURL=style.css.map */

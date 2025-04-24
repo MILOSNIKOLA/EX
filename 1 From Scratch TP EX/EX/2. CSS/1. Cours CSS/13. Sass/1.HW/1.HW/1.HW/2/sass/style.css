@@ -1,17 +1,89 @@
-/* Error: expected "}".
- *    ,
- * 46 | }
- *    |  ^
- *    '
- *   sass\style.scss 46:2  root stylesheet */
-
-body::before {
-  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
-      "Droid Sans Mono", monospace, monospace;
-  white-space: pre;
-  display: block;
-  padding: 1em;
-  margin-bottom: 1em;
-  border-bottom: 2px solid black;
-  content: 'Error: expected "}".\a    \2577 \a 46 \2502  }\a    \2502   ^\a    \2575 \a   sass\\style.scss 46:2  root stylesheet';
+/*! minireset.css v0.0.6 | MIT License | github.com/jgthms/minireset.css */
+html, body, p, ol, ul, li, dl, dt, dd, blockquote, figure, fieldset, legend, textarea, pre, iframe, hr, h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
 }
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: 100%;
+  font-weight: normal;
+}
+
+ul {
+  list-style: none;
+}
+
+button, input, select {
+  margin: 0;
+}
+
+html {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+}
+
+img, video {
+  height: auto;
+  max-width: 100%;
+}
+
+iframe {
+  border: 0;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+td, th {
+  padding: 0;
+}
+
+body {
+  background-color: #000000;
+  font-family: serif;
+}
+
+p {
+  margin: 1rem;
+}
+
+.table {
+  width: 100%;
+}
+.table td {
+  border: 1px solid #ccc;
+  color: #fff;
+}
+.table thead {
+  background-color: #000;
+  background-repeat: no-repeat;
+  color: #fff;
+}
+
+.btn, .btn-danger {
+  border-radius: 3px;
+  padding: 5px 12px;
+}
+
+.btn, .btn-danger {
+  text-decoration: none;
+  background: #8282ff;
+  color: #fff;
+}
+.btn:hover, .btn-danger:hover {
+  background: #0f0781;
+}
+
+.btn-danger {
+  background: #ff3535;
+}
+.btn-danger:hover {
+  background: #b90000;
+}/*# sourceMappingURL=style.css.map */

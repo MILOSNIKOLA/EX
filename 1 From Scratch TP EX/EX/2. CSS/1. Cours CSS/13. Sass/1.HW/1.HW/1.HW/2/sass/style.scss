@@ -1,8 +1,11 @@
 @import './libs/reset.scss';
-
+// body::before {
+//     visibility: hidden!important;
+//     content: " "!important;
+// }
 body {
-    background-color: #ffffff;
-    color: #000000;
+    background-color: #000000;
+    font-family: serif;
 }
 
 p {
@@ -24,20 +27,63 @@ p {
     }
 }
 
+// .btn {
+//     background: #3134f3;
+
+//     &:hover {
+//         background: #0f0781;
+//     }
+
+//     // S'applique si .btn est dans un parent .theme-vert
+//     .theme-vert & {
+//         background: #15ad15;
+//     }
+
+//     @media only screen and (max-width: 1200px) {
+//         padding: 10px;
+//     }
+// }
+
+%btn {
+    border-radius: 3px;
+    padding: 5px 12px;
+}
+
 .btn {
-    background: #3134f3;
-
+    @extend %btn;
+    text-decoration: none;
+    background: #8282ff; 
+    color: #fff;
+    
     &:hover {
-        background: #0f0781;
-    }
-
-    // S'applique si .btn est dans un parent .theme-vert
-    .theme-vert & {
-        background: #15ad15;
-    }
-
-    @media only screen and (max-width: 1200px) {
-        padding: 10px;
+         background: #0f0781;
     }
 }
+
+// .call-to-action {
+//     @extend .btn;
+// }
+
+.btn-danger {
+    @extend .btn;
+    background: #ff3535;
+    &:hover {
+        background: #b90000;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
