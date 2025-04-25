@@ -44,8 +44,9 @@ td, th {
 }
 
 body {
-  background-color: #000000;
+  background-color: rgba(114, 93, 190, 0.7254901961);
   font-family: serif;
+  padding: 20px;
 }
 
 p {
@@ -53,7 +54,7 @@ p {
 }
 
 .table {
-  width: 100%;
+  width: 90%;
 }
 .table td {
   border: 1px solid #ccc;
@@ -65,25 +66,47 @@ p {
   color: #fff;
 }
 
-.btn, .btn-danger {
+.btn, .btn-danger, .card-cancel, .card-action {
   border-radius: 3px;
   padding: 5px 12px;
 }
 
-.btn, .btn-danger {
+.btn, .btn-danger, .card-cancel, .card-action {
   text-decoration: none;
   background: #8282ff;
   color: #fff;
 }
-.btn:hover, .btn-danger:hover {
+.btn:hover, .btn-danger:hover, .card-cancel:hover, .card-action:hover {
   background: #0f0781;
 }
 
-.btn-danger {
+.btn-danger, .card-cancel {
   background: #ff3535;
 }
-.btn-danger:hover {
+.btn-danger:hover, .card-cancel:hover {
   background: #b90000;
 }
 
+.card-actions {
+  display: flex;
+}
+
+.card {
+  padding: 20px 20px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
+  margin: 0 auto;
+  width: 50%;
+  background-color: #ccc;
+}
+
+.card:hover {
+  padding: 10px;
+  box-shadow: -14px -6px 20px 1px rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
+  transition: 1s ease-in-out;
+  transform: scale(1.11);
+  transform: rotate("90");
+}
+
 /*# sourceMappingURL=style.css.map */
+ 
