@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "assets/styles/layout"
+		},
+		{
+			"path": "assets/styles/pages"
+		},
+		{
+			"path": "assets/styles/components"
+		}
+	]
+}

@@ -1,11 +1,308 @@
-// index.scss ressemble tous les fichiers sass
+﻿$color_1: rgba(32, 30, 30, 0.973);
+$color_2: rgb(167, 143, 167);
+$color_3: rgba(85, 77, 77, 0.863);
+$color_4: #222;
+$color_5: #555555c5;
+$color_6: #fff;
+$color_7: #555;
+$font-family_1: 'Alumni Sans Pinstripe', sans-serif;
+$font-family_2: 'Segoe UI', sans-serif;
+$background-color_1: #000;
+$border-color_1: #000;
 
-// settings.scss doit être lu en premier pour que sass 
-// connaisse les variables
-
-@import "./settings";
-@import "./layout/navbar";
-@import "./layout/header";
-@import "./layout/section";
-@import "./layout/footer";
-@import "./components/buttons";
+@import "https://fonts.googleapis.com/css2?family=Alumni+Sans+Pinstripe:ital@0;1&display=swap";
+/* @import url('https://fonts.googleapis.com/css2?family=Andada+Pro:ital,wght@0,400..840;1,400..840&display=swap'); */
+/************************** 1/3 *************************/
+/**************** 2/3 *************************/
+/***************** 3/3 *************************/
+/************** Form ******************/
+/* Grille personnalisée */
+/* Association des éléments à leurs zones */
+/* Style commun aux inputs et textarea */
+/* Labels (les <p>) */
+/************ FOOTER *************/
+* {
+	box-sizing: content-box;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+header {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	margin: 0;
+	.pr-vi {
+		display: grid;
+		background-image: url('./integration-run-master/img/banner.jpg');
+		background-size: cover;
+		background-position: bottom;
+		background-repeat: no-repeat;
+		width: 100%;
+		height: 113.85%;
+		position: absolute;
+		width: 100%;
+		clip-path: polygon(50% 0, 100% 0, 100% 100%, 50% 100%);
+	}
+}
+.prvi {
+	margin: 40% auto;
+	text-align-last: left;
+	padding-left: 5rem;
+	width: 50rem;
+	height: auto;
+	h1 {
+		transform: translateY(-50%);
+		font-size: 1.55rem;
+		font-size: 4rem;
+		font-family: $font-family_1;
+		color: $color_1;
+		font-weight: 700;
+		font-size: 100px;
+	}
+	p {
+		font-size: 1.5rem;
+		color: $color_2;
+		line-height: 1.7;
+		width: 95%;
+		letter-spacing: 1px;
+	}
+	button {
+		padding: 1rem 2rem;
+		color: $color_3;
+		border: 1px solid rgb(167, 143, 167);
+		border-radius: 35px;
+		cursor: pointer;
+	}
+}
+p {
+	transform: translateY(-50%);
+	font-size: 1.55rem;
+	padding: .1rem 0;
+	font-size: 1.55rem;
+	margin: .5rem 0;
+	font-size: 1.55rem;
+}
+button {
+	transform: translateY(-50%);
+	font-size: 1.55rem;
+	padding: .1rem 0;
+	font-size: 1.55rem;
+	margin: .5rem 0;
+	font-size: 1.55rem;
+}
+aside {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	.drugi {
+		display: grid;
+		background-image: url('./integration-run-master/img/img-left.jpg');
+		background-size: cover;
+		background-position: bottom;
+		background-repeat: no-repeat;
+		width: 80%;
+		height: 55vh;
+		transform: translateY(-.9rem);
+	}
+	.dru-gi {
+		float: right;
+		padding-top: 7rem;
+		transform: translateX(-7rem);
+	}
+}
+.dru-gi {
+	h2 {
+		padding: .1rem 0;
+		font-size: 1.55rem;
+		transform: translateY(-6rem);
+		margin: 0;
+		padding-top: 3rem;
+		font-family: $font-family_1;
+		color: $color_1;
+		font-weight: 100;
+		font-size: 60px;
+		word-spacing: 1px;
+		font-weight: 600;
+	}
+	p {
+		font-size: 1.5rem;
+		color: $color_2;
+		line-height: 1.5;
+		width: 95%;
+		letter-spacing: 1px;
+	}
+	button {
+		padding: 1rem 2rem;
+		color: $color_3;
+		border: 1px solid rgb(167, 143, 167);
+		border-radius: 35px;
+		cursor: pointer;
+		margin: 0;
+	}
+}
+.aside {
+	display: grid;
+	grid-template-columns: 70% 30%;
+	width: 100%;
+	padding-top: 5rem;
+}
+.tre-ci {
+	text-align-last: left;
+	padding-left: 5rem;
+	h2 {
+		margin: .5rem 0;
+		font-size: 1.55rem;
+		font-family: $font-family_1;
+		color: $color_1;
+		font-weight: 100;
+		font-size: 60px;
+		word-spacing: 1px;
+		font-weight: 600;
+		margin-bottom: 6rem;
+	}
+	p {
+		font-size: 1.5rem;
+		color: $color_2;
+		line-height: 1.7;
+		width: 95%;
+		letter-spacing: 1px;
+		margin-bottom: 2rem;
+	}
+	button {
+		padding: 1rem 2rem;
+		color: $color_3;
+		border: 1px solid rgb(167, 143, 167);
+		border-radius: 35px;
+		cursor: pointer;
+		transform: translateY(-4.5rem);
+	}
+}
+.arrr {
+	display: grid;
+	background-image: url('./integration-run-master/img/img-right.jpg');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	width: 100%;
+	height: 50vh;
+	transform: translateY(-6rem);
+}
+.for {
+	max-width: 700px;
+	margin: 0 auto;
+	padding: 40px 20px;
+	font-family: $font-family_2;
+	box-sizing: border-box;
+}
+.h3 {
+	h3 {
+		text-align: center;
+		font-size: 2rem;
+		font-weight: 400;
+		margin-bottom: 40px;
+		color: $color_4;
+	}
+}
+.form {
+	form {
+		display: grid;
+		grid-template-areas: "label-name label-email" "input-name input-email" "label-message label-message" "input-message input-message" "button button";
+		grid-template-columns: 1fr 1fr;
+		gap: 15px 20px;
+	}
+	p {
+		&:nth-of-type(1) {
+			grid-area: label-name;
+		}
+		&:nth-of-type(2) {
+			grid-area: label-email;
+		}
+		&:nth-of-type(3) {
+			grid-area: label-message;
+		}
+		font-size: 0.9rem;
+		color: $color_7;
+		justify-self: center;
+		justify-items: center;
+		text-align: center;
+		&:nth-last-child(3) {
+			margin-top: 2rem;
+		}
+	}
+	input[type="text"] {
+		grid-area: input-name;
+		width: 100%;
+		padding: 12px 14px;
+		font-size: 1rem;
+		border: 1px solid #ccc;
+		border-radius: 6px;
+		box-sizing: border-box;
+		resize: none;
+		transition: border-color 0.3s ease;
+	}
+	input[type="email"] {
+		grid-area: input-email;
+		width: 100%;
+		padding: 12px 14px;
+		font-size: 1rem;
+		border: 1px solid #ccc;
+		border-radius: 6px;
+		box-sizing: border-box;
+		resize: none;
+		transition: border-color 0.3s ease;
+	}
+	textarea {
+		grid-area: input-message;
+		width: 100%;
+		padding: 12px 14px;
+		font-size: 1rem;
+		border: 1px solid #ccc;
+		border-radius: 6px;
+		box-sizing: border-box;
+		resize: none;
+		transition: border-color 0.3s ease;
+		&:focus {
+			border-color: $border-color_1;
+			outline: none;
+		}
+	}
+	button {
+		grid-area: button;
+		justify-self: center;
+		margin-top: 2rem;
+		border-radius: 35px;
+		padding: .7rem 1.5rem;
+		color: $color_5;
+		&:hover {
+			background-color: $background-color_1;
+			color: $color_6;
+			transition: all 0.7s ease;
+		}
+	}
+	input {
+		&:focus {
+			border-color: $border-color_1;
+			outline: none;
+		}
+	}
+}
+footer {
+	display: flex;
+	padding-top: 2rem;
+}
+.icon {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 0 auto;
+	padding: 2rem 0;
+	i {
+		margin: 0 2rem;
+		img {
+			width: 20px;
+			height: auto;
+			border-radius: 50%;
+			border: 1px solid rgb(167, 143, 167);
+			padding: 7px;
+		}
+	}
+}
