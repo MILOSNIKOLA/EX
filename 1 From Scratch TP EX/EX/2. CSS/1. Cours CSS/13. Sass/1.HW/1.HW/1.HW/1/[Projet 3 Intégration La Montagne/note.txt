@@ -1,5 +1,3 @@
-@mixin nom
-
-@include nom , 
+@mixin nom => @include nom , 
 
 _settings en 1er de la liste
