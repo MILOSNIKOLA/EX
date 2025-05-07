@@ -1,3 +1,57 @@
 @mixin nom => @include nom , 
 
 _settings en 1er de la liste
+
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.7); // fond semi-transparent
+  backdrop-filter: blur(2px); // effet de flou léger
+  padding: 0.5rem 0;
+  z-index: 10;
+
+  .nav {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 2rem;
+
+    ul {
+      display: flex;
+      gap: 2rem;
+    }
+  }
+
+  .social {
+    display: flex;
+    gap: 2rem;
+    margin-right: 2rem;
+    align-items: center;
+  }
+
+  li {
+    list-style: none;
+  }
+
+  a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.07rem;
+    letter-spacing: 1px;
+    padding: 1.2rem 0.7rem;
+    border-radius: 0.3rem;
+    background: rgba(255,255,255,0.24);
+    transition: background 0.2s, color 0.2s;
+
+    &:hover {
+      background: #fff;
+      color: #000;
+    }
+  }
+}

@@ -4,6 +4,7 @@ body {
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
+  background-size: 110%;
 }
 
 .hero {
@@ -12,7 +13,7 @@ body {
 }
 .hero h1 {
   text-align: center;
-  margin-top: 17rem;
+  margin-top: 15rem;
   font-size: 3rem;
   color: #fff;
   font-family: "ExtraBold", sans-serif;
@@ -92,4 +93,71 @@ body {
   100% {
     opacity: 0;
   }
+}
+.hero .social {
+  grid-column: 3;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 1.2rem;
+  list-style: none;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  margin: 0;
+}
+.hero .social li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.1rem;
+  -webkit-transition: color 0.2s;
+  transition: color 0.2s;
+}
+.hero .social li a:hover {
+  color: #e0e0e0;
+}
+
+nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0 auto;
+  -webkit-transform: translateY(-19rem);
+          transform: translateY(-19rem);
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+nav .nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+  margin-right: 10rem;
+}
+nav ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+nav li {
+  list-style-type: none;
+}
+nav a {
+  color: #000000;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.07rem;
+  letter-spacing: 1px;
+  padding: 1.5rem 0.5rem;
+  -webkit-transition: color 0.2s;
+  transition: color 0.2s;
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.2392156863);
+}
+nav a:hover {
+  background: #ffffff;
+  color: #000000;
 }/*# sourceMappingURL=index1.css.map */
