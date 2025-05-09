@@ -120,6 +120,7 @@ nav {
     transform: translateY(-19rem);
     justify-content: center;
 
+
     .nav {
         display: flex;
         justify-content: left;
@@ -136,6 +137,9 @@ nav {
         list-style-type: none;
     }
 
+    li .social {
+        display: flex;
+    }
     a {
         color: #000000;
         text-decoration: none;
@@ -146,10 +150,24 @@ nav {
         transition: color 0.2s;
         color: #ffffff;
         background-color: #ffffff3d;
-
+        
         &:hover {
             background: #ffffff;
             color: #000000;
         }
-    }   
+    } 
+    
+    .social img{
+        height: 15px;
+        width: 16px;
+        // margin-left: 5rem;
+    //    padding: 0;
+       padding-left: 10rem;
+       
+       justify-content: right;
+        
+    }
+
+    
+
 }

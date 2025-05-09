@@ -145,6 +145,11 @@ nav ul {
 nav li {
   list-style-type: none;
 }
+nav li .social {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
 nav a {
   color: #000000;
   text-decoration: none;
@@ -160,4 +165,12 @@ nav a {
 nav a:hover {
   background: #ffffff;
   color: #000000;
+}
+nav .social img {
+  height: 15px;
+  width: 16px;
+  padding-left: 10rem;
+  -webkit-box-pack: right;
+      -ms-flex-pack: right;
+          justify-content: right;
 }/*# sourceMappingURL=index1.css.map */
