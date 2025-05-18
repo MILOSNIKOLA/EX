@@ -2,6 +2,11 @@
 $ani-speed: 2s;
 $ani-delay: 1s;
 
+* {
+    text-decoration: none;
+    list-style: none;
+}
+
 body {
     background: url("./mastering-front-end/images/bg.jpg") top/cover no-repeat;
     background-attachment: fixed;
@@ -54,7 +59,7 @@ body {
 
     .arrow:before,
     .arrow:after {
-        background: #fff;
+        // background: #fff;
         content: "";
         display: block;
         height: 3px;
@@ -75,6 +80,7 @@ body {
     }
 
     // Animation
+
     @keyframes arrow-movement {
         0% {
             opacity: 0;
@@ -89,85 +95,147 @@ body {
             opacity: 0;
         }
     }
-
-    .social {
-        grid-column: 3;
-        display: flex;
-        gap: 1.2rem;
-        list-style: none;
-        justify-content: flex-end;
-        margin: 0;
-
-        li a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 1.1rem;
-            transition: color 0.2s;
-
-            &:hover {
-                color: #e0e0e0;
-            }
-        }
-    }
 }
 
+// Navigation
+
+// nav {
+//     display: flex;
+//     justify-content: space-around;
+//     margin-left: 20%;
+//     margin-right: 20%;
+//     transform: translateY(-19rem);
+
+//     div {
+//         display: flex;
+//         width: 70%;
+//         padding:0 -20rem;
+//         background-color: rgba(255, 255, 255, 0.144);
+//     }
+
+//     ul {
+//         display: flex;
+//         width: 70%;
+//         justify-content: left;
+
+//         li {
+          
+//             a {
+//               border:1px solid #fff;
+//               padding: 1rem;
+//                 &:hover {
+//                     background-color: seashell;
+//                     padding: 1rem;
+//                 }
+//             }
+//         }
+//     }
+
+//     .div-1 {
+//         display: flex;
+//         justify-content: space-between;
+//         width: 30%;
+
+//         .ul-1 {
+//             display: flex;
+//             justify-content:right;
+//             width: 100%;
+//         }
+
+//         li {
+//             a {}
+
+//             img {
+//                 width: 16px;
+//                 height: 16px;
+//             }
+//         }
+//     }
+// }
+
 nav {
+  display: flex;
+  justify-content: space-between;
+//   align-items: center;
+  background: rgba(255, 255, 255, 0.3); // Fond semi-transparent
+  padding: 0 rem;
+  height: 60px;
+  border-radius: 0 0 8px 8px; // Coins arrondis en bas
+  backdrop-filter: blur(2px); // Effet de flou pour un rendu moderne
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transform: translateY(-19rem);
+  margin: 0 20%;
+ 
+  
+  > div {
     display: flex;
-    //    margin-left: 2rem;
-    //    margin-right: 2rem;
-    margin: 0 auto;
-    // flex-direction: row;
-    transform: translateY(-19rem);
-    justify-content: center;
+    align-items: center;
+    
+    
+  }
 
-
-    .nav {
-        display: flex;
-        justify-content: left;
-        // width: 60%;
-        margin-right: 10rem;
-    }
-
-    ul {
-        display: flex;
-        
-    }
+  ul {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding:0 1.5rem;
 
     li {
-        list-style-type: none;
-    }
+      margin-right: 2rem;
 
-    li .social {
-        display: flex;
-    }
-    a {
-        color: #000000;
+      &:last-child {
+        margin-right: 0;
+      }
+
+      a {
+        margin:0 auto;
+        
         text-decoration: none;
-        font-weight: 600;
-        font-size: 1.07rem;
-        letter-spacing: 1px;
-        padding: 1.5rem 0.5rem;
-        transition: color 0.2s;
         color: #ffffff;
-        background-color: #ffffff3d;
+        font-weight: 600;
+        letter-spacing: 0.05em;
+        font-size: 1rem;
+        transition: color 0.2s;
         
         &:hover {
-            background: #ffffff;
-            color: #000000;
-        }
-    } 
-    
-    .social img{
-        height: 15px;
-        width: 16px;
-        // margin-left: 5rem;
-    //    padding: 0;
-       padding-left: 10rem;
-       
-       justify-content: right;
+          color: #000000;
+          background-color: #fff;
+          border-color: #fff;
+          padding: 1.33rem 0rem;
+          margin-left: 5px;
+          margin-right: 5px;
         
+        }
+      &:hover {
+        // background: rgba(255, 255, 255, 0.7);
+      }
     }
+    }
+  }
 
-    
+  .div-1 {
+    .ul-1 {
+      li.social {
+        margin-left: 1.5rem;
+        margin-right: 0;
 
+        a.a {
+          display: flex;
+          align-items: center;
+
+          img {
+            width: 24px;
+            height: 24px;
+            filter: brightness(0) invert(1); // Pour des icônes blanches
+            transition: filter 0.2s;
+
+            &:hover {
+              filter: brightness(0.8) invert(0.7) sepia(1) hue-rotate(180deg);
+            }
+          }
+        }
+      }
+    }
+  }
 }
