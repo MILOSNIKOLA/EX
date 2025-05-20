@@ -1,0 +1,31 @@
+Développeur.se web
+
+Les tâches principales d'un développeur.se web et mobile incluent la création de pages web, le développement de fonctionnalités interactives, la gestion des bases de données, l'optimisation des performances et l'assurance qualité.
+Le développeur.se web utilise des langages de programmation tels que HTML, CSS, JavaScript, PHP et Python pour créer des interfaces utilisateur et des fonctionnalités interactives pour les sites web.
+Les objectifs de la formation
+Elle vise la création et la mise en ligne de sites web dynamiques avec WordPress et des langages de programmation (Javascript, Python, PHP), tout en initiant à la gestion de bases de données et d'intelligences artificielles devenues incontournables.
+Durée et prérequis
+Formation collective, uniquement en présentiel et en France.
+Durée : 400 h
+Prérequis :
+Pratique courante recommandée de l'ordinateur sous Windows ou Mac
+Comprendre, parler et écrire le français
+Un test de positionnement sera réalisé en amont de la formation
+Programme de la formation
+Créer un site avec HTML, CSS, JavaScript, PHP
+Utiliser des Framework tels que Bootstrap5
+NodeJS et lier à une base de données
+Comprendre les différences entre JavaScript et PHP
+Utiliser PHP myAdmin et une base de données MySQL
+Différencier les bases de données MySQL et NOSQL
+Examiner les notions communes de JavaScript et PHP
+Créer et gérer le contenu d'un site web
+Créer des modèles et des menus personnalisés
+Ajouter des fonctionnalités après la conception
+Introduction à la création d'une boutique en ligne avec Woocommerce
+S'initier à la programmation avec Python et comprendre ses différences avec PHP et JavaScript
+Utiliser des outils d'IA : ChatGPT, Midjourney, Stable Diffusion, DALL·E
+Utiliser Photoshop en ligne et Canva pour la conception graphique
+Découvrir le frontend : la 3D dans Javascript et avec Blender3D
+Déployer son site avec Heroku / Uploader un site avec FileZilla
+Comprendre les hébergements en ligne et les CMS
