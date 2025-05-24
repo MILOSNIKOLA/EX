@@ -3,6 +3,16 @@
 $ani-speed: 2s;
 $ani-delay: 1s;
 
+@mixin button {
+  border: 1px solid #000;
+  border-radius: 0.5rem;
+  padding: 1rem 2rem;
+  font-size: 1.8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 * {
     text-decoration: none;
     list-style: none;
@@ -16,6 +26,9 @@ body {
     background-size: 110%;
 }
 
+button {
+    
+}
 
 .hero {
     background: url("./mastering-front-end/images/hero.jpg") bottom/cover no-repeat;
@@ -113,7 +126,7 @@ nav {
   backdrop-filter: blur(2px); // Effet de flou pour un rendu moderne
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
   transform: translateY(-19.3rem);
-  margin: 0 20%;
+  margin: 0 10%;
 
   border: 1px solid rgba(255, 255, 255, 0.3); // Bordure semi-transparente
   &:hover {
@@ -203,7 +216,7 @@ nav {
 
 main {
   background-color: #fff;
-  margin: 0 20%;
+  margin: 0 10%;
   transform: translateY(-19.5rem);
 
   article {
@@ -222,5 +235,54 @@ main {
       padding-top: 5.1rem;
       margin-bottom: 5rem;
     }
-  }
+
+    h2 {
+      font-size: 3rem;
+      font-family: "Merriweather", serif;
+      font-weight: 900;
+      color: #000;
+      margin-bottom: 2rem;
+      width: 35%;
+      text-align: center;
+      margin: 0 auto;
+      line-height: 4rem;
+      padding-bottom: 2rem;
+    }
+
+    p {
+      font-size: 1.5rem;
+      font-family: "Merriweather", serif;
+      font-weight: 100;
+      color: #646464;
+      margin-bottom: 2rem;
+      width: 50%;
+      text-align: center;
+      margin: 0 auto;
+      line-height: 3rem;
+      font-style: italic;
+      padding-bottom: 2rem;
+    }
+
+    figure {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 5rem;
+
+      img {
+        width: 100%;
+        height: auto;
+        max-width: 1200px; 
+        border-radius: 8px; 
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); // Ombre portée
+      } 
+    }
+   
+  }.button {
+       @include button;
+       
+       background-color: chartreuse;
+       height: 5rem;
+       width: 20rem;
+    }
+
 }

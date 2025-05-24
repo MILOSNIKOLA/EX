@@ -1,4 +1,13 @@
 @mixin nom => @include nom , 
+ex :
+
+@mixin centerChild {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+ 
+=> include centerChild 
 
 _settings en 1er de la liste
 
