@@ -259,10 +259,10 @@ main article figure img {
           box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 main .button {
-  border: 1px solid #000;
+  border: 3px solid #000;
   border-radius: 0.5rem;
-  padding: 1rem 2rem;
-  font-size: 1.8rem;
+  padding: 15px 10px;
+  font-size: 1rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -272,7 +272,49 @@ main .button {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-color: chartreuse;
-  height: 5rem;
-  width: 20rem;
+  width: 10rem;
+  margin: 0 auto;
+  text-transform: uppercase;
+  font-family: "Merriweather", serif;
+  color: #000;
+}
+main .button:hover {
+  background: #000;
+  color: #fff;
+  -webkit-transition: all 0.6s ease-in-out;
+  transition: all 0.6s ease-in-out;
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+main .articles-secondaires {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  padding-bottom: 5rem;
+}
+main .articles-secondaires article {
+  display: grid;
+}
+main .articles-secondaires article h3 {
+  text-align: center;
+}
+main .articles-secondaires article figure {
+  display: grid;
+  grid-template-columns: 50%, 50%;
+  margin: 0;
+  padding: 0;
+}
+main .articles-secondaires article figure img {
+  display: grid;
+  width: 547px;
+  height: 400px;
+  background: url("./mastering-front-end/images/pic01.jpg");
+}
+main .articles-secondaires article p {
+  text-align: justify;
+  font-size: 1.2rem;
+  font-family: "Merriweather", serif;
+  font-weight: 100;
+  color: #646464;
+  margin-bottom: 2rem;
+  padding: 0 1rem;
 }/*# sourceMappingURL=index1.css.map */
