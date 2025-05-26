@@ -28,15 +28,21 @@ $ani-delay: 1s;
     text-decoration: none;
     list-style: none;
 }
+html {
+    box-sizing: border-box;
+    width: 100%;
+    height: 50rem;
+    margin: 0;
+    padding: 0;
 
 body {
     background: url("./mastering-front-end/images/bg.jpg") top/cover no-repeat;
     background-attachment: fixed;
-    background-size: cover;
     background-position: center;
-    background-size: 110%;
+    background-size: 100%;
+  
 }
-
+}
 // button {
     
 // }
@@ -296,25 +302,30 @@ main {
   section.articles-secondaires {
     display: grid;
     grid-template-columns: repeat(2,1fr);
-    padding-bottom: 5rem;
+    padding-bottom: 6rem;
     
     article {
       display: grid;
       
       h3 {
         text-align: center;
+        font-family: "Merriweather", serif;
+        text-transform: uppercase;
+        width: 50%;
+        margin: 0 auto;
+        font-size: 2rem;
       }
       figure {
         display: grid;
         grid-template-columns: 40%,50%;
         margin:0;
-        
-        padding: 0;
+        padding-top: 3rem;
+       
         img {
           display: grid;
           width: 547px;
           height: 400px;
-          margin-left: ;
+          
          background: url("./mastering-front-end/images/pic01.jpg");
         }
       }
@@ -325,9 +336,81 @@ main {
         font-weight: 100;
         color: #646464;
         margin-bottom: 2rem;
-        padding: 0 1rem;
+        padding: 2rem 0rem;
+        width: 70%;
       }
       }
     }
   }
 
+footer {
+    
+    background: #fff;
+   transform: translateY(-14.5rem);
+    height: 40rem;
+  margin: 0 10%;
+  margin-bottom: -10rem;
+
+  .contact {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-row: 1;
+    padding: 1.5rem;
+
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: left;
+      justify-content: center;
+      width: 100%;
+      padding: 2rem;
+      row-gap: 1rem;
+
+      input, textarea {
+        width: 80%;
+        padding: 1rem;
+        margin-bottom: 1rem;
+        border-radius: 0.5rem;
+        border: 2px solid #ccc;
+        font-size: 1rem;
+        font-family: "Merriweather", serif;
+      }
+
+      button {
+        @include button;
+        margin-top: 1rem;
+        margin: 0; 
+        justify-content: left;
+        align-items: left;
+      }
+
+      label {
+        font-size: 1.2rem;
+        font-family: "Merriweather", serif;
+        color: #333;
+        margin-bottom: 0.5rem;
+      }
+    }
+
+    address {
+     display: flex;
+     flex-wrap: wrap;
+     height: 5rem;
+
+     label {
+        font-size: 1.2rem;
+        font-family: "Merriweather", serif;
+        color: #333;
+        // margin-bottom: 0.5rem;
+        width: 50%;
+      }
+
+      p {
+        font-size: 1rem;
+        font-family: "Merriweather", serif;
+        color: #646464;
+        // margin-bottom: 0.5rem;
+      }
+    }
+  }
+}

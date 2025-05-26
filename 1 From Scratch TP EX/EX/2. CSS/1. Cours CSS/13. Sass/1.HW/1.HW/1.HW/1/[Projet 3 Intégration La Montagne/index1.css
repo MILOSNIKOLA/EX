@@ -5,12 +5,19 @@
   list-style: none;
 }
 
-body {
+html {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 100%;
+  height: 50rem;
+  margin: 0;
+  padding: 0;
+}
+html body {
   background: url("./mastering-front-end/images/bg.jpg") top/cover no-repeat;
   background-attachment: fixed;
-  background-size: cover;
   background-position: center;
-  background-size: 110%;
+  background-size: 100%;
 }
 
 .hero {
@@ -286,35 +293,144 @@ main .button:hover {
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
 }
-main .articles-secondaires {
+main section.articles-secondaires {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  padding-bottom: 5rem;
+  padding-bottom: 6rem;
 }
-main .articles-secondaires article {
+main section.articles-secondaires article {
   display: grid;
 }
-main .articles-secondaires article h3 {
+main section.articles-secondaires article h3 {
   text-align: center;
+  font-family: "Merriweather", serif;
+  text-transform: uppercase;
+  width: 50%;
+  margin: 0 auto;
+  font-size: 2rem;
 }
-main .articles-secondaires article figure {
+main section.articles-secondaires article figure {
   display: grid;
-  grid-template-columns: 50%, 50%;
+  grid-template-columns: 40%, 50%;
   margin: 0;
-  padding: 0;
+  padding-top: 3rem;
 }
-main .articles-secondaires article figure img {
+main section.articles-secondaires article figure img {
   display: grid;
   width: 547px;
   height: 400px;
   background: url("./mastering-front-end/images/pic01.jpg");
 }
-main .articles-secondaires article p {
+main section.articles-secondaires article p {
   text-align: justify;
   font-size: 1.2rem;
   font-family: "Merriweather", serif;
   font-weight: 100;
   color: #646464;
   margin-bottom: 2rem;
-  padding: 0 1rem;
+  padding: 2rem 0rem;
+  width: 70%;
+}
+
+footer {
+  background: #fff;
+  -webkit-transform: translateY(-14.5rem);
+          transform: translateY(-14.5rem);
+  height: 40rem;
+  margin: 0 10%;
+  margin-bottom: -10rem;
+}
+footer .contact {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-row: 1;
+  padding: 1.5rem;
+}
+footer .contact form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: left;
+      -ms-flex-align: left;
+          align-items: left;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+  padding: 2rem;
+  row-gap: 1rem;
+}
+footer .contact form input, footer .contact form textarea {
+  width: 80%;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 0.5rem;
+  border: 2px solid #ccc;
+  font-size: 1rem;
+  font-family: "Merriweather", serif;
+}
+footer .contact form button {
+  border: 3px solid #000;
+  border-radius: 0.5rem;
+  padding: 15px 10px;
+  font-size: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 10rem;
+  margin: 0 auto;
+  text-transform: uppercase;
+  font-family: "Merriweather", serif;
+  color: #000;
+  margin-top: 1rem;
+  margin: 0;
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+  -webkit-box-align: left;
+      -ms-flex-align: left;
+          align-items: left;
+}
+footer .contact form button:hover {
+  background: #000;
+  color: #fff;
+  -webkit-transition: all 0.6s ease-in-out;
+  transition: all 0.6s ease-in-out;
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+footer .contact form label {
+  font-size: 1.2rem;
+  font-family: "Merriweather", serif;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+footer .contact address {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  height: 5rem;
+}
+footer .contact address label {
+  font-size: 1.2rem;
+  font-family: "Merriweather", serif;
+  color: #333;
+  width: 50%;
+}
+footer .contact address p {
+  font-size: 1rem;
+  font-family: "Merriweather", serif;
+  color: #646464;
 }/*# sourceMappingURL=index1.css.map */
