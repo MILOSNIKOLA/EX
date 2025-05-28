@@ -535,32 +535,38 @@ footer .contact ul svg:hover {
   }
 }
 @media screen and (max-width: 1262px) {
-  .social {
-    margin-left: -7rem;
+  footer .contact address {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-align: left;
+        -ms-flex-align: left;
+            align-items: left;
+    -webkit-box-pack: left;
+        -ms-flex-pack: left;
+            justify-content: left;
+    max-width: 50%;
   }
-  .contact ul li svg {
-    -webkit-transform: translateX(-10.5rem);
-            transform: translateX(-10.5rem);
-    width: 20px;
+  footer .contact address p:nth-child {
+    background-color: chartreuse;
   }
-  p {
-    font-size: 1.2rem;
-    font-family: "Merriweather", serif;
-    color: #333;
-    margin-right: 4rem;
-    text-transform: capitalize;
+  footer .contact ul {
+    -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
   }
-  svg {
-    font-size: 1.5rem;
-    margin-right: -0.7rem;
-    width: 25px;
-    height: auto;
-    padding: 0 0.5rem;
+  footer .contact ul p {
+    -webkit-transform: translateX(-16.5rem);
+            transform: translateX(-16.5rem);
   }
-  svg:hover {
-    -webkit-transition: all 0.3s ease-in-out;
-    transition: all 0.3s ease-in-out;
-    -webkit-transform: scale(1.3);
-            transform: scale(1.3);
+  footer .contact ul div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-transform: translateX(-8rem);
+            transform: translateX(-8rem);
   }
 }/*# sourceMappingURL=index1.css.map */
