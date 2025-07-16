@@ -419,25 +419,27 @@ header p {
   background: url("../../../assets/img/bg-menu-01.jpg") no-repeat;
   width: 100%;
   height: 100rem;
-  -webkit-transform: translateY(-50rem);
-          transform: translateY(-50rem);
 }
 .main-03 .bg {
   background-color: rgb(44, 38, 38);
   width: 100%;
-  -webkit-transform: translateY(-20rem) !important;
-          transform: translateY(-20rem) !important;
+  height: 100rem !important;
+  -webkit-transform: translateY(-54rem) !important;
+          transform: translateY(-54rem) !important;
   z-index: 10;
 }
-.main-03 .div {
-  -webkit-transform: translateY(10rem);
-          transform: translateY(10rem);
+.main-03 .div { /*time open*/
+  -webkit-transform: translateY(-55rem);
+          transform: translateY(-55rem);
   margin: 0 auto;
   margin-top: -90rem;
   display: grid;
   grid-template-columns: 30% 70%;
   width: 70%;
   height: 50rem;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 1px solid #000000;
 }
 .main-03 .div .aperture {
   width: 400px;
@@ -455,6 +457,7 @@ header p {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  background-color: #000000;
 }
 .main-03 .div .aperture .border {
   border: #ffffff dashed 2px;
@@ -509,10 +512,52 @@ header p {
   color: #000000;
   font-size: 1.5rem;
   text-align: center;
-  margin-top: 15rem;
+  -ms-flex-item-align: center;
+      align-self: center;
 }
-.main-03 .div .reserv-time.right-time span {
+.main-03 .div .reserv-time.right-time div {
+  display: grid;
+}
+.main-03 .div .reserv-time.right-time div form {
+  grid-template-columns: 1fr 1fr;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.main-03 .div .reserv-time.right-time div form h3 {
+  font-size: 2rem;
+}
+.main-03 .div .reserv-time.right-time div form h3 span {
   display: block;
-  margin-top: 1rem;
-  font-weight: bold;
+  font-size: 3rem;
+  font-weight: normal;
+  color: #a77c06;
+  margin-bottom: -3rem;
+  font-family: "Allura", cursive;
+}
+.main-03 .div .reserv-time.right-time div form h3 img {
+  display: block !important;
+  width: 40px !important;
+  height: 40px !important;
+  margin: 0 auto !important;
+  margin-top: 3rem !important;
+}
+.main-03 .div .reserv-time.right-time div form select {
+  width: 10rem;
+  height: 3rem;
+  font-size: 1rem;
+  color: #000000;
+  background-color: #ffffff;
+  border: 1px solid #000000;
+  margin-top: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
 }/*# sourceMappingURL=index.css.map */
