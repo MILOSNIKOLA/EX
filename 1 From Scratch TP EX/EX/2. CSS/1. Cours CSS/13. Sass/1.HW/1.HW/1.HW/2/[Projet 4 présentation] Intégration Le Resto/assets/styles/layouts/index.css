@@ -428,7 +428,8 @@ header p {
           transform: translateY(-54rem) !important;
   z-index: 10;
 }
-.main-03 .div { /*time open*/
+.main-03 .div {
+  /*time open*/
   -webkit-transform: translateY(-55rem);
           transform: translateY(-55rem);
   margin: 0 auto;
@@ -516,20 +517,19 @@ header p {
       align-self: center;
 }
 .main-03 .div .reserv-time.right-time div {
-  display: grid;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100% !important;
 }
 .main-03 .div .reserv-time.right-time div form {
-  grid-template-columns: 1fr 1fr;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  width: 80%;
+  display: grid;
+  grid-template-columns: 1f;
 }
 .main-03 .div .reserv-time.right-time div form h3 {
   font-size: 2rem;
+  margin-bottom: 3rem;
 }
 .main-03 .div .reserv-time.right-time div form h3 span {
   display: block;
@@ -544,7 +544,7 @@ header p {
   width: 40px !important;
   height: 40px !important;
   margin: 0 auto !important;
-  margin-top: 3rem !important;
+  padding-top: 3rem !important;
 }
 .main-03 .div .reserv-time.right-time div form select {
   width: 10rem;
@@ -552,7 +552,7 @@ header p {
   font-size: 1rem;
   color: #000000;
   background-color: #ffffff;
-  border: 1px solid #000000;
+  border-bottom: 1px solid #000;
   margin-top: 2rem;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -560,4 +560,34 @@ header p {
   -webkit-box-pack: left;
       -ms-flex-pack: left;
           justify-content: left;
+}
+.main-03 .div .reserv-time.right-time div form select,
+.main-03 .div .reserv-time.right-time div form #date,
+.main-03 .div .reserv-time.right-time div form #time {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-bottom: 1px solid #000;
+}
+.main-03 .div .reserv-time.right-time div form #date,
+.main-03 .div .reserv-time.right-time div form #time {
+  width: 10rem;
+  height: 3rem;
+  font-size: 1.2rem;
+  color: #000000;
+  background-color: #ffffff;
+  border: 1px solid #000000;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.main-03 .div .reserv-time.right-time div form button {
+  width: 10rem;
+  height: 3rem;
+  font-size: 1.2rem;
+  color: #ffffff;
+  background-color: #a77c06;
+  border: none;
+  cursor: pointer;
+  margin-top: 2rem;
 }/*# sourceMappingURL=index.css.map */
