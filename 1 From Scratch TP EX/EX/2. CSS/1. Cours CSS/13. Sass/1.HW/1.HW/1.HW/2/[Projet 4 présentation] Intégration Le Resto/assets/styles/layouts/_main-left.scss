@@ -1,0 +1,99 @@
+.main-01 {
+  display: grid;
+  grid-template-columns: 50% 50%;
+
+  & .main-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    // align-self: center;
+
+    & div {
+      border: 1px dashed #000;
+      margin: 1rem;
+      padding: 9rem 1rem 6.7rem 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      h2 {
+        font-size: 2rem;
+        font-weight: 700;
+        text-align: center;
+
+        & span {
+          font-family: "Allura", cursive;
+          font-weight: 100;
+          font-size: 4rem;
+          color: #a77c06;
+          margin-bottom: 0;
+        }
+        p {
+          font-size: 1.5rem;
+          font-weight: 400;
+          text-align: center;
+          margin-bottom: 1 rem;
+         
+          color: #000;
+          & a {
+            display: block;
+            color: #000;
+            font-weight: 700;
+            font-size: 2rem;
+            word-spacing: 7px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            // transform: translateY(-2rem);
+            margin-top: -1.5rem;
+          }
+        }
+      }
+       img {
+        display: flex;
+        justify-content: center;
+        align-self: center;
+        align-items: center;
+        width: 50px;
+        height: 50px;
+        margin-bottom: 1rem;
+      }
+      h3 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        text-align: center;
+        margin-bottom: -4.5rem;
+        color: #000;
+      }
+
+      h4 {
+        font-size: 1.2rem;
+        font-weight: 400;
+        text-align: center;
+        margin-top: 5rem;
+        color: #000;
+      }
+
+      p {
+        font-size: 1.2rem;
+        font-weight: 400;
+        text-align: center;
+        text-align: center;
+        // margin-bottom:rem;
+        color: #000;
+      }
+      .avatar {
+        /*HEAD COOK*/
+        display: flex;
+        justify-content: center;
+        align-self: center;
+        align-items: center;
+        width: 100px;
+        height: 100px;
+        margin-bottom: 1rem;
+        margin-top: 2rem;
+      }
+    }
+  }
+}

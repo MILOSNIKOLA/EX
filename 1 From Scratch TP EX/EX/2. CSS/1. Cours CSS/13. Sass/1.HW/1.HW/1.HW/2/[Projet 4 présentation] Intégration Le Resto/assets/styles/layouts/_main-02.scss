@@ -1,0 +1,129 @@
+.main-02 {
+ background-color: rgb(44, 38, 38);
+//  padding-bottom: -50rem;
+  margin-top: -4px;
+  height: 600px;
+  div {
+    
+    h3 {
+      font-family: "Allura", cursive;
+      font-weight: 100;
+      font-size: 3rem;
+      color: #a77c06;
+      text-align: center;
+      padding-top: 6rem;
+    }
+    img {
+      display: block;
+      width: 40px;
+      height: 40px;
+      margin: 0 auto;
+      margin-top: 3rem;
+    }
+  }
+
+  .menu {
+    
+    ul {
+      width: 70rem;
+      //   background-color: aliceblue;
+      margin: 0 auto;
+      display: flex;
+      height: auto;
+      flex-direction: row;
+      justify-content: space-evenly;
+      padding-top: 2.5rem;
+      
+      li {
+        color: #ffffff;
+        border-bottom: 1px solid #ffffff;
+        padding-top: 1rem;
+        font-size: 2rem;
+
+        &:hover {
+          color: #a77c06;
+          border-bottom: 1px solid #a77c06;
+          transition: all 0.3s ease;
+        }
+      }
+    }
+    .menu-det {
+      z-index: 100;
+      padding-bottom: 3rem;
+      margin: 0 auto;
+      width: 76rem;
+      background-color: #ffffff;
+      height: 70%;
+      div {
+        height: 980px;
+        margin-top: 5rem;
+        border-top: 5px red solid;
+        margin-right: 0;
+        margin-left: 0;
+        height: 760px;
+        ul {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          // row-gap: rem;
+          grid-column-gap:7rem;
+          margin-left: -1rem;
+          padding: 0px;
+          li {
+            width: 30rem;
+            // height: auto;
+                display: -webkit-box;
+            
+            border-bottom: 1px dashed #979797 ;
+            padding-top: 0;
+            padding-bottom: 20px;
+            margin-left: 2.5rem;
+            img {
+              
+              width: 130px;
+              height: auto;
+              margin-left: 1rem;
+              
+            }
+            .menu-text {
+              border-top: none;
+             margin-left: .5rem;
+             margin-right: 0;
+             margin-top: 5rem;
+              width: 250px;
+              // margin-top: 5rem;
+              align-content: top;
+              height: 100px;
+              padding: 0;
+             
+             h5 {
+              display: block;
+              font-size: 1rem;
+              // width: rem;
+              border-top: 0px rgba(255, 255, 255, 0);
+              color: #000;
+              font-weight: 400; 
+              line-height: 3rem;
+             }
+             p {
+              font-size: 1.1rem;
+              color: #686868;
+             }
+
+
+            }
+            .price {
+              display: flex;
+              justify-content: center;
+              width: 5rem;
+              align-items: center;
+              font-size: 30px;
+              margin: -.3rem 1rem -3.2rem 1rem;
+              color: #ca9a15;
+              font-weight: 600;
+            }
+          }
+        }
+      }
+    }
+  }
+}
