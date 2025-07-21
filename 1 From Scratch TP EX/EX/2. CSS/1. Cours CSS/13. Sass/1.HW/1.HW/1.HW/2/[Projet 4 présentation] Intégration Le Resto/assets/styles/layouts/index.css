@@ -546,14 +546,29 @@ header p {
   margin: 0 auto;
   margin-bottom: 3rem;
 }
-.main-03 .div .reserv-time.right-time div form .select {
-  width: 15rem;
+.main-03 .div .reserv-time.right-time div form div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  margin-bottom: 5rem;
+}
+.main-03 .div .reserv-time.right-time div form div .select {
+  width: 10rem;
   height: 4rem;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
 }
-.main-03 .div .reserv-time.right-time div form .select select {
+.main-03 .div .reserv-time.right-time div form div .select select {
   width: 100%;
   height: 4rem;
   font-size: 1.5rem;
@@ -562,18 +577,25 @@ header p {
   background-color: #ffffff;
   color: #000000;
 }
-.main-03 .div .reserv-time.right-time div form input {
+.main-03 .div .reserv-time.right-time div form div input {
   width: 100%;
   height: 4rem;
   font-size: 1rem;
   padding: 0.5rem;
-  border-radius: 0.5rem;
   background-color: #ffffff;
   color: #000000;
-  margin-bottom: 1rem;
 }
-.main-03 .div .reserv-time.right-time div form #date, .main-03 .div .reserv-time.right-time div form #time, .main-03 .div .reserv-time.right-time div form select {
-  display: inline;
-  width: 15rem;
-  border: 1px solid #000000;
+.main-03 .div .reserv-time.right-time div form div #date,
+.main-03 .div .reserv-time.right-time div form div #time,
+.main-03 .div .reserv-time.right-time div form div select {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  width: 10rem;
+  border: none;
+  border-bottom: 1px solid #000000;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 1.2rem;
 }/*# sourceMappingURL=index.css.map */
