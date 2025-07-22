@@ -110,11 +110,10 @@
       div {
         form {
           width: 90%;
-          margin: 0 auto;
+          // margin: 0 auto;
           background-color: rgb(255, 255, 255);
           height: 20rem;
-          display: flex;
-          flex-direction: column;
+
           h3 {
             font-size: 2rem;
             margin-bottom: 3rem;
@@ -137,20 +136,19 @@
             height: auto;
             display: block;
             margin: 0 auto;
-            margin-bottom: 3rem;
+            margin-bottom: 1rem;
           }
           div {
             display: flex;
             flex-direction: row;
             align-items: center;
             justify-content: space-around;
-            margin-bottom: 5rem;
+            margin-bottom: 1rem;
 
             .select {
-              width: 10rem;
               height: 4rem;
               display: inline-flex;
-
+              margin: 0 25px;
               select {
                 width: 100%;
                 height: 4rem;
@@ -163,10 +161,10 @@
               }
             }
             input {
-              width: 100%;
+              width: 10rem;
               height: 4rem;
-              font-size: 1rem;
-              padding: 0.5rem;
+              // font-size: 1rem;
+              // padding: 0.5rem;
               // border-radius: 0.5rem;
               // border: 1px solid #000000;
               background-color: #ffffff;
@@ -181,23 +179,50 @@
               border: none;
               border-bottom: 1px solid #000000;
               justify-content: center;
+              margin: 0 25px;
               font-size: 1.2rem;
             }
           }
 
-         
-            input {
-              background-color: chartreuse;
-              height: 100%;
-              width: 70%;
-              font-size: 1.5rem;
-              margin: 0 auto;
-            }
-            
-          
 
+          
+          .div {
+          transform: translateY(70rem);
+          border: none;
+            input {
+              // background-color: chartreuse;
+              display: flex;
+              justify-content: center;
+              flex-direction: row;
+              width: 15rem;
+              font-size: 1.5rem;
+              border: none;
+              border-bottom: 1px solid #000000;
+              
+
+            #txt,
+            #tel,
+            #email {
+              
+              height: 4rem;
+              font-size: 1rem;
+              padding: 0.5rem;
+              // border-radius: 0.5rem;
+              border: none;
+              border-bottom: 1px solid #000000;
+              background-color: #ffffff;
+              color: #000000!important;
+              margin-bottom: 1rem;
+              // display: inline-flex;
+              // flex-direction: row;
+              // justify-content: center;
+              
+            }
+
+             }
+          }
         }
       }
     }
   }
-  }
+}
