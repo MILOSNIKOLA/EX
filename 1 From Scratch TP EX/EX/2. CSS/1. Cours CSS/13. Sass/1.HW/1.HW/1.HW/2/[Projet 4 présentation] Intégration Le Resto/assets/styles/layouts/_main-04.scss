@@ -1,0 +1,24 @@
+.main-04 {
+  div {
+    h3 {
+background-color: chartreuse;
+        
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        height: 6rem;
+        span {
+            display: flex;
+            -webkit-box-pack: center;
+                -ms-flex-pack: center;
+                    justify-content: center;
+            margin: 0 auto;
+            width: 100%;
+            height: 3.5rem;
+            font-size: 3rem;
+            color: #ffffff;
+            text-align: center;
+        }
+    }
+  }
+}

@@ -19,14 +19,14 @@
   .bg {
     background-color: rgb(44, 38, 38);
     width: 100%;
-    height: 100rem !important;
+    height: 150rem !important;
     transform: translateY(-54rem) !important;
     z-index: 10;
   }
 
   .div {
     /*time open*/
-    transform: translateY(-55rem);
+    transform: translateY(-105rem);
     margin: 0 auto;
     margin-top: -90rem;
     display: grid;
@@ -106,23 +106,31 @@
       font-size: 1.5rem;
 
       align-items: center;
-
+      align-self: center;
       div {
+        
+       padding: 11rem 0rem;
+        width: 100%;
+        height: 100%;
+        align-items: center;
         form {
-          width: 90%;
+          width: 100%;
           // margin: 0 auto;
           background-color: rgb(255, 255, 255);
-          height: 20rem;
+          height: auto;
+          
 
           h3 {
             font-size: 2rem;
-            margin-bottom: 3rem;
+            // margin-top: 3rem;
             text-align: center;
-            width: 100%;
+            width: auto;
+            height: 6rem;
             display: block;
+            margin: 0 auto;
             span {
               width: 100%;
-              display: block;
+              height: 3.5rem;
               font-size: 3rem;
               font-weight: normal;
               color: #a77c06;
@@ -136,17 +144,20 @@
             height: auto;
             display: block;
             margin: 0 auto;
-            margin-bottom: 1rem;
+            margin-bottom: rem;
           }
           div {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: space-around;
-            margin-bottom: 1rem;
-
+              display: flex;
+              flex-direction: row;
+              align-items: center;
+              justify-content: center;
+              flex-wrap: wrap;
+              width: 100%;
+              margin: 0 auto;
+              padding: 0 3rem;
             .select {
               height: 4rem;
+              width: 160px;
               display: inline-flex;
               margin: 0 25px;
               select {
@@ -155,25 +166,28 @@
                 font-size: 1.5rem;
                 padding: 0.5rem;
                 border-radius: 0.5rem;
-                // border: 1px solid #000000;
                 background-color: #ffffff;
                 color: #000000;
               }
             }
             input {
+              display: flex;
+              flex-wrap: wrap;
               width: 10rem;
               height: 4rem;
-              // font-size: 1rem;
-              // padding: 0.5rem;
-              // border-radius: 0.5rem;
-              // border: 1px solid #000000;
               background-color: #ffffff;
+              border-bottom: 1px solid #000000;
+              border: none;
               color: #000000;
-              // margin-bottom: 1rem;
+              margin: 1rem 2rem;
             }
+
             #date,
             #time,
-            select {
+            select,
+            #txt,
+            #tel,
+            #email {
               display: inline-flex;
               width: 10rem;
               border: none;
@@ -181,45 +195,28 @@
               justify-content: center;
               margin: 0 25px;
               font-size: 1.2rem;
+
             }
-          }
 
-
-          
-          .div {
-          transform: translateY(70rem);
-          border: none;
-            input {
-              // background-color: chartreuse;
-              display: flex;
-              justify-content: center;
-              flex-direction: row;
-              width: 15rem;
+            #ok {
+              width: 12rem;
+              height: 4rem;
+              background-color: #a77c06;
+              color: #ffffff;
               font-size: 1.5rem;
               border: none;
-              border-bottom: 1px solid #000000;
-              
+              cursor: pointer;
+              margin-top: 2rem;
+              transition: all 0.3s ease-in-out;
+              border-radius: 50px;
+              padding: 0!important;
+              &:hover {
+                
+                background-color: #8f6b05;
+                transform: scale(1.05);
 
-            #txt,
-            #tel,
-            #email {
-              
-              height: 4rem;
-              font-size: 1rem;
-              padding: 0.5rem;
-              // border-radius: 0.5rem;
-              border: none;
-              border-bottom: 1px solid #000000;
-              background-color: #ffffff;
-              color: #000000!important;
-              margin-bottom: 1rem;
-              // display: inline-flex;
-              // flex-direction: row;
-              // justify-content: center;
-              
+              }
             }
-
-             }
           }
         }
       }
