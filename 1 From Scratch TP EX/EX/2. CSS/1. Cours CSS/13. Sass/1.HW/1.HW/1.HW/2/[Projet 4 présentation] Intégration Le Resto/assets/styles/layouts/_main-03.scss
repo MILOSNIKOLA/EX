@@ -171,8 +171,7 @@
               }
             }
             input {
-              display: flex;
-              flex-wrap: wrap;
+              
               width: 10rem;
               height: 4rem;
               background-color: #ffffff;
@@ -188,7 +187,7 @@
             #txt,
             #tel,
             #email {
-              display: inline-flex;
+              display: flex;
               width: 10rem;
               border: none;
               border-bottom: 1px solid #000000;

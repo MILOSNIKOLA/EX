@@ -1,24 +1,29 @@
-.main-04 {
-  div {
-    h3 {
-background-color: chartreuse;
-        
-        display: flex;
-        justify-content: center;
-        width: 100%;
-        height: 6rem;
-        span {
-            display: flex;
-            -webkit-box-pack: center;
-                -ms-flex-pack: center;
-                    justify-content: center;
-            margin: 0 auto;
-            width: 100%;
-            height: 3.5rem;
-            font-size: 3rem;
-            color: #ffffff;
-            text-align: center;
-        }
-    }
+.main-04 > div {
+  display: flex;
+  flex-direction: column; // disposition verticale
+  align-items: center; // centre horizontalement tous les enfants (dont h3)
+  justify-content: center; // centre verticalement (si tu veux dans toute la hauteur du parent)
+  height: 100%; // ajuste selon ton layout réel
+}
+
+.main-04 h3 {
+  transform: translateY(-90rem) !important;
+  display: flex;
+  flex-direction: column; // permet de manipuler le span comme "element" vertical
+  align-items: center; // centre horizontalement le texte ET le span
+  justify-content: center; // centre le h3 initialement
+  position: relative; // nécessaire pour le positionnement du span
+  min-height: 100px; // ajuste selon ton besoin de hauteur
+  margin: 0;
+
+  .main-04 h3 span {
+    margin-top: auto; // pousse le span en bas du h3
+    display: block;
+    align-self: center; // centre horizontalement le span
+     font-size: 3rem;
+            color: #a77c06!important;
+            margin-bottom: -1rem;
+            font-family: "Allura", cursive;
+            letter-spacing: 0;
   }
 }
