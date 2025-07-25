@@ -15,15 +15,74 @@
   position: relative; // nécessaire pour le positionnement du span
   min-height: 100px; // ajuste selon ton besoin de hauteur
   margin: 0;
+  font-size: 3rem;
+  font-weight: 400;
+  letter-spacing: 5px!important;
+  color: #a77c06 !important;
+  margin-bottom: -1rem;
+  font-family: "Allura", cursive;
+  letter-spacing: 0;
+}
+.main-04 h3 span {
+  margin-top: -.7rem; // pousse le span en bas du h3
+  display: block;
+  align-self: center; // centre horizontalement le span
+  color: #fff;
+  letter-spacing: 3px!important;
+  word-spacing: -15px!important;
+  text-transform: uppercase;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 600!important; // pour le rendre plus visible
+}
 
-  .main-04 h3 span {
-    margin-top: auto; // pousse le span en bas du h3
-    display: block;
-    align-self: center; // centre horizontalement le span
-     font-size: 3rem;
-            color: #a77c06!important;
-            margin-bottom: -1rem;
-            font-family: "Allura", cursive;
-            letter-spacing: 0;
+.main-04 img {
+  width: 40px;
+  height: auto;
+  max-width: 100%;
+  object-fit: cover; // pour que l'image remplisse son conteneur sans déformation
+  transform: translateY(-85rem) !important; // pour le même effet que le h3
+}
+
+.upcoming {
+  
+  transform: translateY(4rem)!important;
+  display: grid!important;
+  width: 100%;
+  gap: 2rem;
+  grid-template-areas: 
+  "prvi  treci"
+  "drugi treci";
+}
+
+
+
+.prvi,.drugi,.treci {
+      display: grid;
+      
+  img {
+    width: 300px ;
+    height: 308px;
   }
+}
+
+.prvi {
+  grid-area: prvi;
+  height: 350px;
+  margin-top: 1.7rem;
+}
+
+.drugi {
+  // margin-top: -6rem;
+  grid-area: drugi;
+  height: 350px;
+}
+
+.treci {
+  grid-area: treci;
+ 
+}
+
+.treci img {
+  
+  height: 688px;
 }
