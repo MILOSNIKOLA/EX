@@ -44,45 +44,28 @@
 }
 
 .upcoming {
-  
-  transform: translateY(4rem)!important;
+  margin: 0!important;
+  padding: 0!important;
+  transform: translateY(5rem)!important;
   display: grid!important;
   width: 100%;
   gap: 2rem;
   grid-template-areas: 
   "prvi  treci"
   "drugi treci";
-}
 
-
-
-.prvi,.drugi,.treci {
-      display: grid;
-      
-  img {
-    width: 300px ;
-    height: 308px;
+  .prvi h2, .prvi h4, .prvi p {
+    grid-area: prvi;
+    transform: translateY(-50rem);
   }
-}
 
-.prvi {
-  grid-area: prvi;
-  height: 350px;
-  margin-top: 1.7rem;
-}
+  .drugi {
+    grid-area: drugi;
+  }
 
-.drugi {
-  // margin-top: -6rem;
-  grid-area: drugi;
-  height: 350px;
-}
-
-.treci {
-  grid-area: treci;
- 
-}
-
-.treci img {
+  .treci {
+    grid-area: treci;
+  }
   
-  height: 688px;
 }
+
