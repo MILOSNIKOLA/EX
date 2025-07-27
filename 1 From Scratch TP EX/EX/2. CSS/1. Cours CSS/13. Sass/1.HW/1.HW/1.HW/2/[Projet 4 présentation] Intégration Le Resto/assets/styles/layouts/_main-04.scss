@@ -54,18 +54,27 @@
   "prvi  treci"
   "drugi treci";
 
-  .prvi h2, .prvi h4, .prvi p {
-    grid-area: prvi;
-    transform: translateY(-50rem);
+  .prvi,.drugi,.treci {
+    display: grid;
+    margin: 0 auto;
+    padding: 0 auto;
+    img {
+      width: 400px;
+      height: auto;
+      object-fit: cover;
+    }
   }
 
+  .prvi {
+    grid-template-areas: prvi;
+  }
   .drugi {
-    grid-area: drugi;
+    grid-template-areas: drugi;
   }
-
   .treci {
-    grid-area: treci;
+    grid-template-areas: treci;
+    height: 1000px;
+   width: 400px;
   }
-  
 }
 
