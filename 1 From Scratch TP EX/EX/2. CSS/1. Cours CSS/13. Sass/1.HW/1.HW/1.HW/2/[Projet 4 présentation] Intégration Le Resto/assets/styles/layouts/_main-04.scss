@@ -44,20 +44,20 @@
 }
 
 .upcoming {
-  margin: 0!important;
+  margin: 0 auto!important;
   padding: 0!important;
   transform: translateY(5rem)!important;
   display: grid!important;
   width: 100%;
-  gap: 2rem;
+  // gap: 2rem;
   grid-template-areas: 
-  "prvi  treci"
-  "drugi treci";
+  "treci prvi"
+  "drugi prvi";
 
   .prvi,.drugi,.treci {
     display: grid;
-    margin: 0 auto;
-    padding: 0 auto;
+    margin: 0;
+    padding: 0;
     img {
       width: 400px;
       height: auto;
@@ -66,15 +66,38 @@
   }
 
   .prvi {
-    grid-template-areas: prvi;
+    grid-area:treci;
+    
+    img {
+      width: 300px;
+      height: auto;
+      object-fit: cover;
+      // gap: -15rem;
+    }
   }
-  .drugi {
-    grid-template-areas: drugi;
-  }
-  .treci {
-    grid-template-areas: treci;
-    height: 1000px;
-   width: 400px;
-  }
-}
 
+  .drugi {
+    grid-area:drugi;
+    margin-top: 5rem;
+    img {
+      width: 300px;
+      height: auto;
+      object-fit: cover;
+      
+    }
+    
+  }
+
+  .treci {
+    grid-area:prvi;
+    margin-top: 5rem;
+    display: grid;
+    img {
+      width: 500px;
+      height: auto;
+      object-fit: cover;
+    }
+  }
+ 
+
+}
