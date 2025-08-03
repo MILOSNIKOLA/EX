@@ -23,6 +23,12 @@ li {
 
 body {
   text-align: center;
-  font-family: Roboto, serif;
+  font-family: "Roboto", sans-serif;
   background: #21201e;
+}
+
+header {
+  background: url("../../img/bg-slider-06.jpg") center/cover;
+  height: 100vh;
+  width: 100%;
 }/*# sourceMappingURL=index.css.map */
