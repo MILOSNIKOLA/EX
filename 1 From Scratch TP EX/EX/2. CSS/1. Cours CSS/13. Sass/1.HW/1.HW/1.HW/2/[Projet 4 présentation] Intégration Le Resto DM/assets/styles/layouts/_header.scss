@@ -39,17 +39,13 @@ header{
                     color: yellow;
                     transition: all .1s ease-in;
                     text-decoration: underline;
-                    font-size: 1rem;
-                    letter-spacing: 3px;
+                    font-family: Arial, sans-serif;
                 }
                 
                 a {
                      color: $white;
                      text-decoration: none;
-                     transition: all .3s ease-in-out;
-                    
-                     
-                     
+                     transition: all .3s ease-in-out;  
                 }
               }
         }
@@ -57,6 +53,71 @@ header{
         .nav-icons {
             @include alignChildren(space-around);
             font-size: .8rem;
+            cursor: pointer;
+
+            .fa-facebook-f {
+                color: $white;
+                transition: all .5s ease-in-out;
+
+                &:hover {
+                    color: $color2;
+                    transform: scale(1.7);
+                    font-size: 17px;
+                }
+            }
+            .fa-twitter {
+                color: $white;
+                transition: all .5s ease-in-out;
+
+                &:hover {
+                    color: $white;
+                    transform: scale(1.7);
+                    font-size: 17px;
+                }
+            }
+            .fa-instagram {
+                
+                transition: all .5s ease-in-out;
+
+                &:hover {
+                    color: $color3;
+                    transform: scale(1.7);
+                    font-size: 17px;
+                }
+            }
+        }
+    }
+
+    .header-text {
+        @include childCenter;
+        height: 88vh;
+
+        div {
+            margin-top: -150px;
+
+            h2 {
+                font-family: $font1;
+                font-size: 3rem;
+                font-weight: 100;
+                // text-transform: uppercase;
+                color: $color1;
+            }
+
+            h1 {
+                font-size: 3.2rem;
+                letter-spacing: 10px;
+                font-weight: 00;
+            }
+
+            img {
+                height: 27px;
+                margin: 32px 0;
+            }
+
+            h6 {
+                font-size: .75rem;
+                letter-spacing: 6px;
+            }
         }
     }
 }
