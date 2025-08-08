@@ -106,7 +106,9 @@ header{
             h1 {
                 font-size: 3.2rem;
                 letter-spacing: 10px;
-                font-weight: 00;
+                font-weight: 700;
+                margin-top: -28px;
+                font-family: $font2;
             }
 
             img {
@@ -117,6 +119,7 @@ header{
             h6 {
                 font-size: .75rem;
                 letter-spacing: 6px;
+                font-weight: 100;
             }
         }
     }
