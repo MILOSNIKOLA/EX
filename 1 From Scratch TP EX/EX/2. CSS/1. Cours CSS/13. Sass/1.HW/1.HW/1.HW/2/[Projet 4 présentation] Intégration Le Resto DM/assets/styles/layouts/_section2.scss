@@ -4,11 +4,11 @@
     position: relative;
 
     &::after {
-        content: '';
+        content:'';
         position: absolute;
         height: 620px;
         width: 100%;
-        left: 0;
+        // left: 0;
         background: url('../img/bg-menu-01.jpg') center/cover;
         bottom: -330px;
         transform: translate(-50%,-50%);
@@ -17,5 +17,38 @@
     h2 {
        color: $color1; 
        font-size: 2rem;
+       font-family:$font1;
+       font-weight: 500;
+       padding: 60px 0 30px;
+    }
+
+    ul {
+        @include alignChildren(space-around);
+        width: 50%;
+        margin: 30px auto;
+        min-width: 500px;
+
+        li {
+            border-bottom: 1px solid $grey;
+            padding: 10px 0;
+        }
+    }
+
+    .meals {
+        background: $white;
+        color:$black;
+        width: 85%;
+        max-width: 800px;
+        margin: 0 auto;
+        border-top: 4px solid $color1;
+        padding: 15px 0;
+        display: grid;
+        grid-template-columns: 50% 50%;
+        z-index: 1000;
+        position: relative;
+
+        .meal {
+            display: grid;
+        }
     }
 }
