@@ -85,6 +85,10 @@
             > * {
                 padding: 10px 0;
                 margin: 10px;
+                background: none;
+                outline: none;
+                border: none;
+                border-bottom: 1px solid;
 
                 &:hover {
                     background: black;
@@ -94,7 +98,23 @@
                     cursor: pointer;
                 }
             }
-           }
+        }
+           button {
+                border: none;
+                border-radius: 50px;
+                background: $black;
+                color: $white;
+                padding: 16px 30px;
+                letter-spacing: 4px;
+                font-weight: 700;
+                cursor: pointer;
+                
+                &:hover {
+                    transform: translateX(3px);
+                    transition: all 0.3s ease-in-out;
+                    box-shadow: black 0px 0px 10px;
+                }
+            }
         }
   }
 }
