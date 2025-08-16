@@ -1,28 +1,23 @@
-
 @font-face {
-    font-family: 'Allura';
-    src: url('../../fonts/Allura-Regular.ttf');
+  font-family: "Allura";
+  src: url(../fonts/Allura-Regular.ttf);
+}
+@font-face {
+  font-family: "Poppins";
+  src: url(../fonts/Poppins-Medium.ttf);
+}
+@font-face {
+  font-family: "Roboto";
+  src: url(../fonts/Roboto-Light.ttf);
 }
 
-@font-face {
-    font-family: 'Poppins';
-    src: url('../../fonts/Poppins-Medium.ttf');
-}
-
-@font-face {
-    font-family: 'Poppins';
-    src: url('../../fonts/Roboto-Light.ttf');
-}
-
-$font1: 'Allura', cursive;
-$font2: 'Poppins', serif;
-$font3: 'Roboto', sans-serif;
+$font1: Allura, cursive;
+$font2: Poppins, serif;
+$font3: Roboto, serif;
 $white: #eee;
 $black: #21201e;
 $grey: rgb(182, 182, 182);
 $color1: rgb(166, 114, 69);
-$color2: blue;
-$color3: rgb(255, 0, 0);
 
 @mixin childCenter {
   display: flex;
@@ -51,4 +46,3 @@ body {
   font-family: $font3;
   background: $black;
 }
-
