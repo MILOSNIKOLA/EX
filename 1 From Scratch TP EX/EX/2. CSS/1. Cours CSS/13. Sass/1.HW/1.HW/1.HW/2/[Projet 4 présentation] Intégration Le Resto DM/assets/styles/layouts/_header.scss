@@ -60,7 +60,7 @@ header{
                 transition: all .5s ease-in-out;
 
                 &:hover {
-                    color: $color2;
+                    color: $color1;
                     transform: scale(1.7);
                     font-size: 17px;
                 }
@@ -80,7 +80,7 @@ header{
                 transition: all .5s ease-in-out;
 
                 &:hover {
-                    color: $color3;
+                    color: $color1;
                     transform: scale(1.7);
                     font-size: 17px;
                 }
