@@ -1,0 +1,25 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    list-style: none;
+}
+
+body {
+    background: #161616;
+    text-align: center;
+    margin: 0;
+    color: white;
+}
+
+.box {
+    border: 1px solid white;
+    margin: 20px;
+    transition: .25s ease;
+    background: #000;
+}
+
+p {
+    visibility: ;
+    width: 240px;
+    margin: 10px auto 0;
+}
