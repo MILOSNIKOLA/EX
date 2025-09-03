@@ -31,16 +31,15 @@ btn1.addEventListener("click", () => {
     response.classList.add("show-response");
     response.style.background = "green";
     questionContainer.style.background = "#096919ff";
-    // response.style.visibility = "visible";
+    response.style.visibility = "visible";
     
 })
 
 btn2.addEventListener("click", () => {
     response.classList.add("show-response");
-   
     response.style.background = "red";
     questionContainer.style.background = "#690909ff";
-    // response.style.visibility = "visible";
+    response.style.visibility = "visible";
 })
 
 // Mouse event 
@@ -52,8 +51,25 @@ window.addEventListener("mousemove", (e) => {
    mousemove.style.top = e.pageY + "px";
 });
 
+// window.addEventListener("mousedown", () => {
+//     mousemove.style.transform = "scale(2.5)";
+// })
+
+response.addEventListener("mouseover", () => {
+    response.style.transform = "rotate(5deg)";
+})
+
+// 
 
 
 
+// KyyPress
 
+const keypressContainer = document.querySelector(".keypress");
+const key = document.getElementById("key");
 
+document.addEventListener("keypress", (e) => {
+    // console.log(e.key);
+    key.textContent = e.key;  
+    
+})

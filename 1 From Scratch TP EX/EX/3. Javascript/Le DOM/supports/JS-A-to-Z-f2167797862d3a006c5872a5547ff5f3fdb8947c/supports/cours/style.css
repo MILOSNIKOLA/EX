@@ -9,11 +9,13 @@ body {
     text-align: center;
     margin: 0;
     color: white;
+    overflow:hidden;
 }
 
 .box {
     border: 1px solid white;
-    margin: 20px;
+    margin: 30px;
+    padding: 10px;
     transition: .25s ease;
     background: #000;
 }
@@ -44,7 +46,8 @@ p {
     height: 50px;
     width: 50px;
     border: 2px solid pink;
-    border-radius: 50px;
     position: absolute;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);border-radius: 50px;
+    /* transition: .3s ease; */
+    z-index: -1;
 }
