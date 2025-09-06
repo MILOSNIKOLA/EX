@@ -9,7 +9,8 @@ body {
     text-align: center;
     margin: 0;
     color: white;
-    overflow:hidden;
+    overflow-x:hidden;
+    height: 200vh;
 }
 
 .box {
@@ -50,4 +51,20 @@ p {
     transform: translate(-50%, -50%);border-radius: 50px;
     /* transition: .3s ease; */
     z-index: -1;
+}
+
+nav {
+    position: fixed;
+    width: 100%;
+    height: 50px;
+    background: pink;
+    top: -50px;
+    transition: .7s ease;
+}
+
+ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0;
 }

@@ -63,7 +63,7 @@ response.addEventListener("mouseover", () => {
 
 
 
-// KyyPress
+// KeyPress
 
 const keypressContainer = document.querySelector(".keypress");
 const key = document.getElementById("key");
@@ -73,3 +73,89 @@ document.addEventListener("keypress", (e) => {
     key.textContent = e.key;  
     
 })
+
+// Scroll event
+
+const nav = document.querySelector("nav");
+
+window.addEventListener("scroll", () => {
+    
+    console.log(window.scrollY);
+
+    if (window.scrollY > 200) {
+        nav.style.top = 0;
+    } else {
+        nav.style.top = "-50px";
+    }
+});
+
+
+// Form Events
+
+const inputName = document.querySelector('input[type="text"]');
+const select = document.querySelector('select');
+const form = document.querySelector("form");
+let pseudo = "";
+let language = "";
+
+   inputName.addEventListener('input', (e) => {
+    pseudo = e.target.value;
+   }) 
+
+   select.addEventListener('input', (e) => {
+    language = e.target.value;
+   })
+
+form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    console.log(cgv.checked);
+    
+    if (cgv.checked) {          /*textContent , sve zapisuje ,sve*/
+        document.querySelector("form > div").innerHTML = ` 
+        <h3>Pseudo : ${pseudo}</h3>`
+        + `<h4>Langage préféré : ${language}</h4>`;
+        //Afficher les résultats
+    } else {
+        alert("Veuillez remplir les champs");
+    }
+})
+
+// Load event
+
+window.addEventListener("load", () => {
+    // console.log("Document chargé");
+})
+
+// 
+
+const boxes = document.querySelectorAll(".box");
+// console.log(boxes);
+
+boxes.forEach((box => {
+    box.addEventListener("click", (e) => {
+        console.log(e.target);
+        
+    });
+}))
+
+// addEventListener !== onclick
+
+document.body.onclick = function() {
+    console.log("click 1");
+}
+
+// Il est limité à un seul evenment
+
+// BOM (Browser Object Model)
+
+// console.log(window.innerHeight);
+
+
+// Timeout et Interval
+
+// setTimeout(() => {
+//     alert("Hello World");
+// }, 3000);
+
+//  
