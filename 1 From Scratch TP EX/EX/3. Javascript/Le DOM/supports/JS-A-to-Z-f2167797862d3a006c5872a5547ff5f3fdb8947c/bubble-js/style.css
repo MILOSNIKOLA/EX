@@ -3,6 +3,7 @@ body {
   user-select: none;
   cursor: crosshair;
   min-height: 100vh;
+  
 }
 .bubble {
   position: absolute;
