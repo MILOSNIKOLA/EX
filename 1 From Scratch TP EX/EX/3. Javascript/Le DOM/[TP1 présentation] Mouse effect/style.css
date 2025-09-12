@@ -25,7 +25,7 @@ body {
   background: rgb(27, 27, 27);
   color: rgb(246, 246, 246);
   min-height: 100vh;
-  cursor: none !important;
+  cursor: none ;
 }
 nav {
   display: grid;
@@ -147,8 +147,9 @@ footer img {
 /*************************/
 
 .mousemove {
-
-    cursor: none;
+  margin: 0;
+  padding: 0;
+    /* cursor: none; */
 }
 
 .circle {
@@ -196,7 +197,6 @@ footer img {
     width: 150px;
 }
 
-nav ul li a {
-  cursor: pointer;
-  z-index: 1000;
-}
+/* .hand {
+    cursor: pointer !important;
+} */

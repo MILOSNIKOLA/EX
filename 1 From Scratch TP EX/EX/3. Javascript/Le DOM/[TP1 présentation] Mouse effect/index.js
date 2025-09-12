@@ -14,10 +14,10 @@ const circle1 = document.querySelector(".circle-1");
 const circle2 = document.querySelector(".circle-2");
 const circle3 = document.querySelector(".circle-3");
 
-window.addEventListener("mousemove", (e) => {
-   mousemove.style.left = e.pageX + "px";
-   mousemove.style.top = e.pageY + "px";
-  });
+
+// window.addEventListener("mousemove", (e) => {
+//   circle1.classList.toggle("hand");
+//   });
 
 window.addEventListener("mousemove", (e) => {
   circle.style.left = e.pageX + "px";
@@ -28,6 +28,16 @@ window.addEventListener("mousemove", (e) => {
   circle2.style.top = e.pageY + "px";
   circle3.style.left = e.pageX + "px";
   circle3.style.top = e.pageY + "px";
-  }); 
+  console.log(mousemove);
   
+});
+   
+// document.querySelectorAll('p, h3,li').forEach(element => {
+//   element.style.cursor = 'pointer';
+//   element.classList.add("hand");
+// });
+
+
+
+
   
