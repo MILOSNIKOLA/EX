@@ -7,3 +7,11 @@
 
 // Aide
 // Priorités en CSS : id > classe > baliseHtml
+
+
+const hamb = document.getElementById('side-bar');
+const toggle = document.getElementById('toggle-btn');
+
+hamb.addEventListener('click', () => {
+    toggle.classList.toggle('active'); // Ajoute/enlève la classe 'active'
+});
