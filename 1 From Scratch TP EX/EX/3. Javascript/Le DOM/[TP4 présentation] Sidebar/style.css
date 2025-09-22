@@ -59,3 +59,25 @@ li:hover {
   background: #292929;
   color: #fcfcfb;
 }
+
+
+/* Fait glisser la sidebar à l'affichage */
+#side-bar.active {
+  left: 0;
+}
+
+/* Animation du hamburger en croix */
+.toggle-btn.open span:nth-child(1) {
+  transform: rotate(45deg) translate(7px, 7px);
+  background: #292929;
+}
+.toggle-btn.open span:nth-child(2) {
+  opacity: 0;
+}
+.toggle-btn.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
+  background: #292929;
+}
+.toggle-btn span {
+  transition: all 0.3s ease;
+}
