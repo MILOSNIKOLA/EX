@@ -11,7 +11,7 @@ let array = ["Bordeaux", "Toulouse", "Nantes"];
 let array2 = ["Bordeaux", 24, true, [1, 2], { nom: "Denis" }];
 // console.log(array2[4].nom);
 
-let objet = {
+let objet  = {
   pseudo: "Denis",
   age: 33,
   technos: ["Javascript", "React", "NodeJs"],
