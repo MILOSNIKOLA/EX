@@ -32,7 +32,7 @@ let data = [
     pseudo: "Samia",
     age: 24,
     technos: ["CSS", "React", "NodeJs"],
-    admin: false,
+    admin: false, 
   },
   {
     pseudo: "Nikola",
