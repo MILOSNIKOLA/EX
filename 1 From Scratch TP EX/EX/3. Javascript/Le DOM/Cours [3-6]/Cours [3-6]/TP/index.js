@@ -23,3 +23,46 @@ console.log(array.length); // Affiche 3
 let array2 = ["pomme", 42, true, null, undefined, { prenom: "Milos" }, [1, 2, 3]];
 console.log(array2); // Affiche le tableau avec différents types de données
 console.log(array2[5].prenom); // Affiche "value"
+
+// Objets
+let objet = {
+    prenom: "Milos",
+    age: 30,
+    ville: "Paris",
+    technologies: ["JavaScript", "HTML", "CSS"],
+    admin: false,
+};
+
+objet.adresse = "22 rue du code"; // Ajout d'une nouvelle propriété
+
+console.log(objet); // Affiche l'objet complet
+console.log(objet.prenom); // Affiche "Milos"
+console.log(objet["age"]); // Affiche 30
+console.log(objet.technologies[0]) // Affiche "JavaScript"
+console.log(objet.admin); // Affiche false
+
+let data = [
+    {
+    nom: "Mike",
+    age: 25,
+    technologies: ["JavaScript", "React", "Node.js"],
+    admin: false,
+    },
+    {
+    nom: "Mike",
+    age: 45,
+    technologies: ["PHP", "React", "Typescript"],
+    admin: false,
+    },
+    {
+    nom: "Dragan",
+    age: 37,
+    technologies: ["JavaScript", "HTML", "CSS"],
+    admin: true,
+    }
+];
+
+
+// 23min
+
+// Fonctions
