@@ -49,8 +49,8 @@ let data = [
     admin: false,
     },
     {
-    nom: "Mike",
-    age: 45,
+    nom: "Jean",
+    age: 31,
     technologies: ["PHP", "React", "Typescript"],
     admin: false,
     },
@@ -62,7 +62,45 @@ let data = [
     }
 ];
 
+console.log(data[2]["technologies"][0]); // Affiche "JavaScript"
+console.log(data[2].nom);
 
-// 23min
 
-// Fonctions
+// Structures de contrôle
+
+if (data[0].age < 30 || data[2].age < 35) {
+    console.log(data[0].nom + " est un jeune développeur.");
+} else {
+    console.log(data[2].nom + " est un développeur expérimenté.");
+}
+
+// While
+let w = 1;
+
+// while (w <= 5) {
+//     console.log("Tic " + w);
+//     w++;
+// }
+
+
+// // Do while
+// let dw = 0;
+
+// do {
+//     console.log(dw);
+//     dw++;
+// } while (dw < 5);
+
+// Les boucles for
+
+for (const user of data) {
+    // document.body.innerHTML += `<li>${user.nom} (${user.age} ans) - Technologies: ${user.technologies.join(", ")}</li>`;
+}
+
+// on declare la varible i, on initialise i à 0, on met la condition i < data.length, et on incrémente i de 1 à chaque tour de boucle
+for (i = 0; i < data.length; i++) {
+    // console.log(data[i].nom + " a " + data[i].age + " ans.");
+    // console.log(data[i].technologies.join(", "));
+    // document.body.innerHTML += `<h2>${data[i].nom}</h2>`;
+}
+
