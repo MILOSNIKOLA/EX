@@ -106,6 +106,10 @@ console.log(filteredArray);
 console.log(arrayNum.sort()); // Tri par ordre croissant
 console.log(arrayNum.sort((a, b) => b - a)); // Tri par ordre décroissant
 console.log(arrayNum.map((number) => number * 3));
-console.log();
+// array.map() // Crée un nouveau tableau en appliquant une fonction à chaque élément du tableau original
+// array.filter() // Crée un nouveau tableau avec les éléments qui passent un test (fonction)
+// array.reduce() // Réduit le tableau à une seule valeur en appliquant une fonction à chaque élément (ex: somme, produit) 
+// array.forEach() // Exécute une fonction pour chaque élément du tableau (ne crée pas de nouveau tableau)
 
-// 1h53
+
+document.body.innerHTML = arrayNum.map((number) => `<li>${number}</li>`).join("");
