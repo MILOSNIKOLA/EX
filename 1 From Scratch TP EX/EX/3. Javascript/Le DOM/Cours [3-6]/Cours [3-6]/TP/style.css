@@ -2,4 +2,10 @@ body {
     background: #29292b;
     color:#ffffff;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+}
+
+.user-card {
+  border: 2px solid orange;
+  margin: 10px;
 }
