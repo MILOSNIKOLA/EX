@@ -40,50 +40,89 @@ function highlightNavigation() {
 
 window.addEventListener('scroll', highlightNavigation);
 
-// Animations au scroll
+// Animations au scroll avec délais progressifs
 const observerOptions = {
     threshold: 0.1,
-    rootMargin: '0px 0px -100px 0px'
+    rootMargin: '0px 0px -80px 0px'
 };
 
 const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
+    entries.forEach((entry, index) => {
         if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
+            // Délai progressif pour un effet en cascade
+            setTimeout(() => {
+                entry.target.classList.add('visible');
+            }, index * 100);
         }
     });
 }, observerOptions);
 
 // Ajouter la classe fade-in aux éléments à animer
 document.addEventListener('DOMContentLoaded', () => {
-    const elementsToAnimate = document.querySelectorAll(
-        '.service-card, .portfolio-item, .stat-item, .about-text, .contact-info, .contact-form'
-    );
-    
-    elementsToAnimate.forEach(el => {
-        el.classList.add('fade-in');
-        observer.observe(el);
+    // Animer les cartes de service avec délais
+    const serviceCards = document.querySelectorAll('.service-card');
+    serviceCards.forEach((card, index) => {
+        card.classList.add('fade-in');
+        card.style.transitionDelay = `${index * 0.1}s`;
+        observer.observe(card);
     });
+    
+    // Animer les items de portfolio
+    const portfolioItems = document.querySelectorAll('.portfolio-item');
+    portfolioItems.forEach(item => {
+        item.classList.add('fade-in');
+        observer.observe(item);
+    });
+    
+    // Animer les stats
+    const statItems = document.querySelectorAll('.stat-item');
+    statItems.forEach(item => {
+        item.classList.add('fade-in');
+        observer.observe(item);
+    });
+    
+    // Animer les autres sections
+    const aboutText = document.querySelector('.about-text');
+    const contactInfo = document.querySelector('.contact-info');
+    const contactForm = document.querySelector('.contact-form');
+    
+    [aboutText, contactInfo, contactForm].forEach(el => {
+        if (el) {
+            el.classList.add('fade-in');
+            observer.observe(el);
+        }
+    });
+    
+    // Animation du badge hero au chargement
+    const heroBadge = document.querySelector('.hero-badge');
+    if (heroBadge) {
+        heroBadge.style.animation = 'fadeInDown 0.8s ease 0.2s both';
+    }
 });
 
-// Animation des statistiques (compteur)
+// Animation des statistiques (compteur) avec effet d'accélération
 function animateCounter(element) {
     const target = parseInt(element.getAttribute('data-target'));
-    const duration = 2000; // 2 secondes
-    const increment = target / (duration / 16); // 60 FPS
-    let current = 0;
+    const duration = 2500; // 2.5 secondes
+    let startTime = null;
+    const easeOutQuart = (t) => 1 - Math.pow(1 - t, 4);
 
-    const updateCounter = () => {
-        current += increment;
-        if (current < target) {
-            element.textContent = Math.floor(current);
+    const updateCounter = (timestamp) => {
+        if (!startTime) startTime = timestamp;
+        const progress = Math.min((timestamp - startTime) / duration, 1);
+        const easedProgress = easeOutQuart(progress);
+        const current = Math.floor(target * easedProgress);
+        
+        element.textContent = current;
+        
+        if (progress < 1) {
             requestAnimationFrame(updateCounter);
         } else {
             element.textContent = target;
         }
     };
 
-    updateCounter();
+    requestAnimationFrame(updateCounter);
 }
 
 // Observer pour déclencher l'animation des compteurs
@@ -106,43 +145,60 @@ document.querySelectorAll('.stat-item').forEach(stat => {
 // Gestion du formulaire de contact
 const contactForm = document.getElementById('contactForm');
 
-contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    
-    // Récupérer les valeurs du formulaire
-    const formData = {
-        name: document.getElementById('name').value,
-        email: document.getElementById('email').value,
-        subject: document.getElementById('subject').value,
-        message: document.getElementById('message').value
-    };
-    
-    // Afficher un message de confirmation (dans une vraie application, vous enverriez les données à un serveur)
-    alert(`Merci ${formData.name} ! Votre message a été envoyé avec succès.\n\nNous vous répondrons à ${formData.email} sous peu.`);
-    
-    // Réinitialiser le formulaire
-    contactForm.reset();
-    
-    // Ici, vous pouvez ajouter du code pour envoyer les données à un serveur
-    // Par exemple avec fetch() :
-    /*
-    fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData)
-    })
-    .then(response => response.json())
-    .then(data => {
-        alert('Message envoyé avec succès !');
-        contactForm.reset();
-    })
-    .catch(error => {
-        alert('Erreur lors de l\'envoi du message. Veuillez réessayer.');
+if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        // Récupérer les valeurs du formulaire
+        const formData = {
+            name: document.getElementById('name').value,
+            email: document.getElementById('email').value,
+            subject: document.getElementById('subject').value,
+            message: document.getElementById('message').value
+        };
+        
+        // Animation du bouton
+        const submitBtn = contactForm.querySelector('button[type="submit"]');
+        const originalText = submitBtn.innerHTML;
+        submitBtn.innerHTML = '<span>Envoi en cours...</span>';
+        submitBtn.disabled = true;
+        submitBtn.style.opacity = '0.7';
+        
+        // Simuler l'envoi (dans une vraie application, vous feriez un appel API)
+        setTimeout(() => {
+            // Afficher un message de confirmation
+            alert(`Merci ${formData.name} ! Votre message a été envoyé avec succès.\n\nNous vous répondrons à ${formData.email} sous peu.`);
+            
+            // Réinitialiser le formulaire
+            contactForm.reset();
+            
+            // Réinitialiser le bouton
+            submitBtn.innerHTML = originalText;
+            submitBtn.disabled = false;
+            submitBtn.style.opacity = '1';
+        }, 1000);
+        
+        // Ici, vous pouvez ajouter du code pour envoyer les données à un serveur
+        // Par exemple avec fetch() :
+        /*
+        fetch('/api/contact', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData)
+        })
+        .then(response => response.json())
+        .then(data => {
+            alert('Message envoyé avec succès !');
+            contactForm.reset();
+        })
+        .catch(error => {
+            alert('Erreur lors de l\'envoi du message. Veuillez réessayer.');
+        });
+        */
     });
-    */
-});
+}
 
 // Smooth scroll pour tous les liens d'ancrage
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -159,11 +215,24 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Effet parallaxe léger sur le hero
+// Effet parallaxe et gestion de la navbar au scroll
+let lastScroll = 0;
+const navbar = document.querySelector('.navbar');
+
 window.addEventListener('scroll', () => {
     const scrolled = window.pageYOffset;
-    const hero = document.querySelector('.hero');
-    if (hero) {
-        hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+    
+    // Ajouter une classe quand on scroll
+    if (scrolled > 100) {
+        navbar.classList.add('scrolled');
+    } else {
+        navbar.classList.remove('scrolled');
     }
+    
+    // Parallaxe léger sur les formes flottantes
+    const shapes = document.querySelectorAll('.shape');
+    shapes.forEach((shape, index) => {
+        const speed = (index + 1) * 0.3;
+        shape.style.transform = `translateY(${scrolled * speed}px)`;
+    });
 });

@@ -1,0 +1,66 @@
+@use 'variables' as *;
+
+// Reset
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// Variables CSS pour compatibilité
+:root {
+  --primary-color: #{$primary-color};
+  --primary-dark: #{$primary-dark};
+  --primary-light: #{$primary-light};
+  --secondary-color: #{$secondary-color};
+  --accent-color: #{$accent-color};
+  --text-dark: #{$text-dark};
+  --text-medium: #{$text-medium};
+  --text-light: #{$text-light};
+  --bg-dark: #{$bg-dark};
+  --bg-light: #{$bg-light};
+  --bg-white: #{$bg-white};
+  --bg-section: #{$bg-section};
+  --border-color: #{$border-color};
+  --shadow-sm: #{$shadow-sm};
+  --shadow-md: #{$shadow-md};
+  --shadow-lg: #{$shadow-lg};
+  --shadow-xl: #{$shadow-xl};
+  --shadow-glow: #{$shadow-glow};
+  --transition: #{$transition};
+  --transition-fast: #{$transition-fast};
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: $font-family;
+  color: $text-dark;
+  line-height: $line-height-base;
+  overflow-x: hidden;
+  background: $bg-dark;
+}
+
+.version {
+  font-size: 0.75rem;
+  color: $text-medium;
+  font-weight: 400;
+  margin-left: 0.75rem;
+  opacity: 0.7;
+  -webkit-text-fill-color: $text-medium;
+  vertical-align: baseline;
+  line-height: 1;
+}
+
+.container {
+  max-width: $container-max-width;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+section {
+  padding: $section-padding;
+  position: relative;
+}

@@ -1,0 +1,93 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(15, 23, 42, 0.9);
+  @include backdrop-blur(20px);
+  box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid $border-color;
+  z-index: 1000;
+  @include transition;
+
+  &.scrolled {
+    background: rgba(15, 23, 42, 0.95);
+    box-shadow: $shadow-md;
+  }
+}
+
+.nav-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 0;
+}
+
+.logo a {
+  font-size: 1.5rem;
+  font-weight: 700;
+  @include gradient-text;
+  text-decoration: none;
+  @include transition;
+  display: inline-flex;
+  align-items: baseline;
+  line-height: 1;
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  gap: 2.5rem;
+}
+
+.nav-link {
+  color: $text-medium;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  @include transition;
+  position: relative;
+  padding: 0.5rem 0;
+
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    @include gradient-border(90deg);
+    @include transition;
+    border-radius: 2px;
+  }
+
+  &:hover::before,
+  &.active::before {
+    width: 100%;
+  }
+
+  &:hover,
+  &.active {
+    color: $primary-color;
+  }
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 6px;
+  padding: 0.5rem;
+
+  span {
+    width: 28px;
+    height: 3px;
+    background: $text-medium;
+    border-radius: 2px;
+    @include transition;
+  }
+}
