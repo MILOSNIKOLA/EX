@@ -493,6 +493,7 @@ section {
   color: #e2e8f0;
   line-height: 1.9;
   font-size: 1.05rem;
+  text-align: justify;
 }
 
 .about-stats {
