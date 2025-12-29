@@ -1,0 +1,63 @@
+@use 'variables' as *;
+
+// Mixins pour les gradients
+@mixin gradient-primary {
+  background: linear-gradient(135deg, $primary-color, $secondary-color);
+}
+
+@mixin gradient-text {
+  background: linear-gradient(135deg, $primary-color, $secondary-color);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@mixin gradient-border($direction: 90deg) {
+  background: linear-gradient($direction, $primary-color, $secondary-color);
+}
+
+// Mixin pour les transitions
+@mixin transition($property: all) {
+  transition: $property 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+// Mixin pour backdrop filter
+@mixin backdrop-blur($amount: 20px) {
+  backdrop-filter: blur($amount) saturate(180%);
+  -webkit-backdrop-filter: blur($amount) saturate(180%);
+}
+
+// Mixin pour les boutons
+@mixin button-hover {
+  transform: translateY(-3px);
+  box-shadow: $shadow-xl;
+}
+
+// Mixin pour les cartes
+@mixin card {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  border-radius: 24px;
+  border: 1px solid $border-color;
+  transition: $transition;
+  
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: $shadow-xl;
+    border-color: rgba(99, 102, 241, 0.3);
+  }
+}
+
+// Mixin responsive
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == md {
+    @media (max-width: $breakpoint-md) {
+      @content;
+    }
+  }
+  @if $breakpoint == sm {
+    @media (max-width: $breakpoint-sm) {
+      @content;
+    }
+  }
+}

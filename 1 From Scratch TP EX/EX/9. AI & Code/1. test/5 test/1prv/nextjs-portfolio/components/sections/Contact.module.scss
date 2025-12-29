@@ -1,0 +1,177 @@
+@use '../../styles/variables' as *;
+
+.contact {
+  background: $bg-dark;
+  padding: 6rem 0;
+}
+
+.container {
+  max-width: $container-max-width;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.label {
+  display: inline-block;
+  padding: 0.5rem 1.25rem;
+  background: linear-gradient(135deg, $primary-color, $secondary-color);
+  color: white;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border-radius: 50px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+}
+
+.title {
+  font-size: 2.75rem;
+  font-weight: 800;
+  color: $text-dark;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 5rem;
+}
+
+.info {
+  h3 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: $text-dark;
+    font-weight: 700;
+  }
+
+  p {
+    color: $text-medium;
+    margin-bottom: 2.5rem;
+    font-size: 1.05rem;
+    line-height: 1.8;
+  }
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.detailItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  border: 1px solid $border-color;
+  transition: $transition;
+
+  &:hover {
+    border-color: $primary-light;
+    box-shadow: $shadow-md;
+    transform: translateX(4px);
+  }
+
+  strong {
+    color: $text-dark;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  a,
+  span {
+    color: $text-medium;
+    text-decoration: none;
+    transition: $transition;
+    font-size: 1.05rem;
+  }
+
+  a:hover {
+    color: $primary-color;
+  }
+}
+
+.form {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  padding: 3rem;
+  border-radius: 24px;
+  box-shadow: $shadow-lg;
+  border: 1px solid $border-color;
+}
+
+.formGroup {
+  margin-bottom: 1.75rem;
+
+  label {
+    display: block;
+    margin-bottom: 0.75rem;
+    color: $text-dark;
+    font-weight: 600;
+    font-size: 0.95rem;
+  }
+
+  input,
+  textarea {
+    width: 100%;
+    padding: 1rem 1.25rem;
+    border: 2px solid $border-color;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: $transition;
+    background: rgba(255, 255, 255, 0.05);
+    color: $text-dark;
+
+    &:focus {
+      outline: none;
+      border-color: $primary-color;
+      background: rgba(255, 255, 255, 0.08);
+      box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.2);
+    }
+  }
+
+  textarea {
+    resize: vertical;
+    min-height: 150px;
+  }
+}
+
+.success {
+  padding: 1rem;
+  background: rgba(34, 197, 94, 0.1);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  border-radius: 8px;
+  color: #4ade80;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+@media (max-width: $breakpoint-md) {
+  .content {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .title {
+    font-size: 2.25rem;
+  }
+
+  .form {
+    padding: 2rem 1.5rem;
+  }
+}
+
+

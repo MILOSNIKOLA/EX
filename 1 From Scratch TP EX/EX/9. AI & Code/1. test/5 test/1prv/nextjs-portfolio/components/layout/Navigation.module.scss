@@ -1,0 +1,114 @@
+@use '../../styles/variables' as *;
+
+.nav {
+  display: flex;
+  list-style: none;
+  gap: 2.5rem;
+
+  @media (max-width: $breakpoint-md) {
+    position: fixed;
+    left: -100%;
+    top: 80px;
+    flex-direction: column;
+    background: rgba(15, 23, 42, 0.98);
+    backdrop-filter: blur(20px);
+    width: 100%;
+    text-align: center;
+    transition: $transition;
+    box-shadow: $shadow-lg;
+    padding: 2rem 0;
+    gap: 0;
+
+    &.open {
+      left: 0;
+    }
+
+    .list {
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .list li {
+      padding: 1rem 0;
+    }
+  }
+}
+
+.list {
+  display: flex;
+  list-style: none;
+  gap: 2.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+.link {
+  color: $text-medium;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: $transition;
+  position: relative;
+  padding: 0.5rem 0;
+
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, $primary-color, $secondary-color);
+    transition: $transition;
+    border-radius: 2px;
+  }
+
+  &:hover::before,
+  &.active::before {
+    width: 100%;
+  }
+
+  &:hover,
+  &.active {
+    color: $primary-color;
+  }
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 6px;
+  padding: 0.5rem;
+  background: transparent;
+  border: none;
+
+  span {
+    width: 28px;
+    height: 3px;
+    background: $text-medium;
+    border-radius: 2px;
+    transition: $transition;
+  }
+
+  @media (max-width: $breakpoint-md) {
+    display: flex;
+
+    &.active {
+      span:nth-child(1) {
+        transform: rotate(45deg) translate(9px, 9px);
+      }
+
+      span:nth-child(2) {
+        opacity: 0;
+      }
+
+      span:nth-child(3) {
+        transform: rotate(-45deg) translate(8px, -8px);
+      }
+    }
+  }
+}
+
+

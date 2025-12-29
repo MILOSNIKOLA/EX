@@ -1,0 +1,26 @@
+// Fichier principal SCSS
+// Import de tous les fichiers partiels
+
+// 1. Variables et mixins (doivent être importés en premier)
+@use 'variables';
+@use 'mixins';
+
+// 2. Styles de base
+@use 'base';
+
+// 3. Composants
+@use 'navigation';
+@use 'buttons';
+@use 'hero';
+@use 'sections';
+@use 'about';
+@use 'services';
+@use 'portfolio';
+@use 'contact';
+@use 'footer';
+
+// 4. Animations
+@use 'animations';
+
+// 5. Responsive (doit être en dernier)
+@use 'responsive';

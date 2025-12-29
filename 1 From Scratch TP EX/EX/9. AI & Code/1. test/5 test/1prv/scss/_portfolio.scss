@@ -1,0 +1,134 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.portfolio {
+  background: $bg-section;
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.portfolio-item {
+  border-radius: 24px;
+  overflow: hidden;
+  position: relative;
+  aspect-ratio: 4/3;
+  box-shadow: $shadow-md;
+  @include transition;
+  cursor: pointer;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    @include gradient-primary;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+  }
+
+  &:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: $shadow-xl;
+
+    &::before {
+      opacity: 0.1;
+    }
+
+    .portfolio-overlay {
+      opacity: 1;
+
+      h3,
+      p {
+        transform: translateY(0);
+      }
+
+      .portfolio-link {
+        transform: translateY(0);
+      }
+    }
+  }
+}
+
+.portfolio-image {
+  width: 100%;
+  height: 100%;
+  @include gradient-primary;
+  position: relative;
+}
+
+.portfolio-item:nth-child(2) .portfolio-image {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.portfolio-item:nth-child(3) .portfolio-image {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+.portfolio-item:nth-child(4) .portfolio-image {
+  background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+}
+
+.portfolio-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.9));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  @include transition;
+  padding: 2.5rem;
+  text-align: center;
+  color: white;
+  z-index: 2;
+
+  h3 {
+    font-size: 1.75rem;
+    margin-bottom: 0.75rem;
+    font-weight: 700;
+    transform: translateY(20px);
+    transition: transform 0.3s ease 0.1s;
+  }
+
+  p {
+    margin-bottom: 1.5rem;
+    opacity: 0.9;
+    font-size: 1.05rem;
+    transform: translateY(20px);
+    transition: transform 0.3s ease 0.2s;
+  }
+}
+
+.portfolio-link {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50px;
+  @include transition;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transform: translateY(20px);
+  transition: all 0.3s ease 0.3s;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateX(4px);
+  }
+}
