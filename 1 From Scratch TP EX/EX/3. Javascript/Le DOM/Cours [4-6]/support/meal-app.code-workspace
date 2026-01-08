@@ -1,0 +1,23 @@
+{
+	"folders": [
+		{
+			"name": "meal-app",
+			"path": "../meal-app"
+		},
+		{
+			"name": "support",
+			"path": "."
+		},
+		{
+			"name": "user-app",
+			"path": "../user-app"
+		},
+		{
+			"name": "joke-app",
+			"path": "../joke-app"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "support"
+	}
+}
