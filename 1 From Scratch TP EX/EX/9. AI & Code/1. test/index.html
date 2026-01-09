@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aura Estate - L'immobilier piloté par l'IA</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/framer-motion@11/dist/framer-motion.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+                'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            background-color: #0a0a0a;
+            color: #f5f5dc;
+        }
+
+        .aura-gold {
+            color: #D4AF37;
+        }
+
+        .bg-aura-gold {
+            background-color: #D4AF37;
+        }
+
+        .border-aura-gold {
+            border-color: #D4AF37;
+        }
+
+        .aura-cream {
+            color: #F5F5DC;
+        }
+
+        .bg-aura-black {
+            background-color: #0A0A0A;
+        }
+
+        .hero-bg {
+            background-image: url('https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .fade-in {
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .slide-up {
+            animation: slideUp 0.6s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .chat-widget {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 50;
+        }
+
+        .chat-button {
+            width: 4rem;
+            height: 4rem;
+            background-color: #D4AF37;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .chat-button:hover {
+            transform: scale(1.1);
+            background-color: #c4a027;
+        }
+
+        .chat-container {
+            width: 24rem;
+            height: 600px;
+            background-color: #0A0A0A;
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            border-radius: 1rem;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+        }
+
+        .chat-message {
+            animation: messageSlide 0.3s ease-out;
+        }
+
+        @keyframes messageSlide {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .property-card {
+            transition: all 0.3s;
+        }
+
+        .property-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(212, 175, 55, 0.5);
+            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.2);
+        }
+
+        .property-card img {
+            transition: transform 0.5s;
+        }
+
+        .property-card:hover img {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+
+<body class="bg-aura-black">
+    <!-- Hero Section -->
+    <section class="relative h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <div class="hero-bg w-full h-full">
+                <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black/90"></div>
+            </div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center fade-in">
+            <div
+                class="inline-flex items-center gap-2 mb-6 px-4 py-2 bg-aura-gold/20 border border-aura-gold/30 rounded-full">
+                <i data-lucide="sparkles" class="w-4 h-4 aura-gold"></i>
+                <span class="aura-gold text-sm font-medium">Powered by AI</span>
+            </div>
+
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 text-white">
+                L'immobilier <span class="aura-gold">piloté par l'IA</span>
+            </h1>
+
+            <p class="text-xl md:text-2xl text-aura-cream/80 mb-12 max-w-3xl mx-auto">
+                Trouvez la propriété de vos rêves en quelques mots. Notre agent IA comprend vos besoins.
+            </p>
+
+            <form id="searchForm" class="max-w-2xl mx-auto slide-up">
+                <div class="relative">
+                    <input type="text" id="searchInput" placeholder="Ex: Une villa avec piscine à Nice pour 2M€"
+                        class="w-full px-6 py-5 pl-14 bg-white/10 backdrop-blur-md border border-aura-gold/30 rounded-2xl text-white placeholder:text-aura-cream/50 focus:outline-none focus:ring-2 focus:ring-aura-gold focus:border-aura-gold text-lg" />
+                    <i data-lucide="search" class="absolute left-5 top-1/2 -translate-y-1/2 w-6 h-6 aura-gold"></i>
+                    <button type="submit"
+                        class="absolute right-3 top-1/2 -translate-y-1/2 px-6 py-3 bg-aura-gold text-black font-semibold rounded-xl hover:bg-aura-gold/90 transition-colors">
+                        Rechercher
+                    </button>
+                </div>
+                <p class="mt-4 text-sm text-aura-cream/60">
+                    💡 Essayez : "Appartement 3 pièces avec terrasse à Paris"
+                </p>
+            </form>
+        </div>
+
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 z-10">
+            <div class="w-6 h-10 border-2 border-aura-gold/50 rounded-full flex items-start justify-center p-2">
+                <div class="w-1 h-3 bg-aura-gold rounded-full animate-bounce"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Properties Section -->
+    <section class="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-aura-black to-aura-black/95">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4 text-white">
+                    Nos <span class="aura-gold">Biens d'Exception</span>
+                </h2>
+                <p class="text-xl text-aura-cream/70 max-w-2xl mx-auto">
+                    Sélectionnés par notre IA pour leur potentiel et leur qualité
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Property 1 -->
+                <div
+                    class="property-card bg-white/5 backdrop-blur-sm border border-aura-gold/20 rounded-2xl overflow-hidden">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80"
+                            alt="Villa Moderne" class="w-full h-full object-cover" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent">
+                        </div>
+                        <div
+                            class="absolute top-4 right-4 flex items-center gap-2 px-3 py-1.5 bg-aura-gold/90 backdrop-blur-sm rounded-full">
+                            <i data-lucide="trending-up" class="w-4 h-4 text-black"></i>
+                            <span class="text-xs font-semibold text-black">Analyse IA : Fort potentiel</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-3">Villa Moderne avec Piscine</h3>
+                        <div class="flex items-center gap-2 text-aura-cream/70 mb-4">
+                            <i data-lucide="map-pin" class="w-4 h-4"></i>
+                            <span class="text-sm">Nice, Côte d'Azur</span>
+                        </div>
+                        <p class="text-aura-cream/60 text-sm mb-4">
+                            Villa contemporaine de 350m² avec vue panoramique sur la mer
+                        </p>
+                        <div class="flex items-center justify-between pt-4 border-t border-aura-gold/20">
+                            <span class="text-2xl font-bold aura-gold">2 450 000 €</span>
+                            <button
+                                class="px-4 py-2 bg-aura-gold/20 hover:bg-aura-gold/30 border border-aura-gold/30 rounded-lg aura-gold font-medium transition-colors text-sm">
+                                Voir les détails
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Property 2 -->
+                <div
+                    class="property-card bg-white/5 backdrop-blur-sm border border-aura-gold/20 rounded-2xl overflow-hidden">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80"
+                            alt="Penthouse" class="w-full h-full object-cover" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent">
+                        </div>
+                        <div
+                            class="absolute top-4 right-4 flex items-center gap-2 px-3 py-1.5 bg-aura-gold/90 backdrop-blur-sm rounded-full">
+                            <i data-lucide="trending-up" class="w-4 h-4 text-black"></i>
+                            <span class="text-xs font-semibold text-black">Analyse IA : Très fort potentiel</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-3">Penthouse Luxueux</h3>
+                        <div class="flex items-center gap-2 text-aura-cream/70 mb-4">
+                            <i data-lucide="map-pin" class="w-4 h-4"></i>
+                            <span class="text-sm">Paris, 16ème</span>
+                        </div>
+                        <p class="text-aura-cream/60 text-sm mb-4">
+                            Appartement de prestige avec terrasse privée de 120m²
+                        </p>
+                        <div class="flex items-center justify-between pt-4 border-t border-aura-gold/20">
+                            <span class="text-2xl font-bold aura-gold">3 800 000 €</span>
+                            <button
+                                class="px-4 py-2 bg-aura-gold/20 hover:bg-aura-gold/30 border border-aura-gold/30 rounded-lg aura-gold font-medium transition-colors text-sm">
+                                Voir les détails
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Property 3 -->
+                <div
+                    class="property-card bg-white/5 backdrop-blur-sm border border-aura-gold/20 rounded-2xl overflow-hidden">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80" alt="Manoir"
+                            class="w-full h-full object-cover" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent">
+                        </div>
+                        <div
+                            class="absolute top-4 right-4 flex items-center gap-2 px-3 py-1.5 bg-aura-gold/90 backdrop-blur-sm rounded-full">
+                            <i data-lucide="trending-up" class="w-4 h-4 text-black"></i>
+                            <span class="text-xs font-semibold text-black">Analyse IA : Excellent investissement</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-3">Manoir Historique</h3>
+                        <div class="flex items-center gap-2 text-aura-cream/70 mb-4">
+                            <i data-lucide="map-pin" class="w-4 h-4"></i>
+                            <span class="text-sm">Bordeaux, Gironde</span>
+                        </div>
+                        <p class="text-aura-cream/60 text-sm mb-4">
+                            Propriété de caractère avec parc de 2 hectares
+                        </p>
+                        <div class="flex items-center justify-between pt-4 border-t border-aura-gold/20">
+                            <span class="text-2xl font-bold aura-gold">1 950 000 €</span>
+                            <button
+                                class="px-4 py-2 bg-aura-gold/20 hover:bg-aura-gold/30 border border-aura-gold/30 rounded-lg aura-gold font-medium transition-colors text-sm">
+                                Voir les détails
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chat Widget -->
+    <div class="chat-widget" id="chatWidget">
+        <button id="chatButton" class="chat-button">
+            <i data-lucide="message-circle" class="w-7 h-7 text-black"></i>
+            <span
+                class="absolute -top-2 -right-2 w-5 h-5 bg-red-500 rounded-full border-2 border-black animate-pulse"></span>
+        </button>
+    </div>
+
+    <!-- Chat Container (hidden by default) -->
+    <div id="chatContainer" class="chat-widget" style="display: none;">
+        <div class="chat-container">
+            <div
+                class="bg-gradient-to-r from-aura-gold/20 to-aura-gold/10 border-b border-aura-gold/30 px-6 py-4 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-aura-gold rounded-full flex items-center justify-center">
+                        <i data-lucide="bot" class="w-6 h-6 text-black"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-white">Agent IA Aura</h3>
+                        <p class="text-xs text-aura-cream/70">En ligne • Répond instantanément</p>
+                    </div>
+                </div>
+                <button id="closeChat"
+                    class="w-8 h-8 flex items-center justify-center rounded-full hover:bg-aura-gold/20 transition-colors">
+                    <i data-lucide="x" class="w-5 h-5 text-aura-cream"></i>
+                </button>
+            </div>
+
+            <div id="chatMessages"
+                class="flex-1 overflow-y-auto p-4 space-y-4 bg-gradient-to-b from-aura-black to-aura-black/95">
+                <div class="flex gap-3 justify-start">
+                    <div class="w-8 h-8 bg-aura-gold rounded-full flex items-center justify-center flex-shrink-0">
+                        <i data-lucide="bot" class="w-5 h-5 text-black"></i>
+                    </div>
+                    <div
+                        class="max-w-[75%] rounded-2xl px-4 py-3 bg-white/10 text-aura-cream border border-aura-gold/20 chat-message">
+                        <p class="text-sm leading-relaxed">Bonjour ! Je suis votre agent IA Aura Estate. Je vais vous
+                            aider à trouver la propriété parfaite. Quel est votre budget approximatif ?</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-aura-gold/20 p-4 bg-aura-black">
+                <div class="flex gap-2">
+                    <input type="text" id="chatInput" placeholder="Tapez votre message..."
+                        class="flex-1 px-4 py-3 bg-white/5 border border-aura-gold/20 rounded-xl text-white placeholder:text-aura-cream/50 focus:outline-none focus:ring-2 focus:ring-aura-gold focus:border-aura-gold" />
+                    <button id="sendButton"
+                        class="px-4 py-3 bg-aura-gold text-black rounded-xl hover:bg-aura-gold/90 transition-colors">
+                        <i data-lucide="send" class="w-5 h-5"></i>
+                    </button>
+                </div>
+                <p class="text-xs text-aura-cream/50 mt-2 text-center">
+                    💡 L'agent IA analyse vos besoins en temps réel
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Chat functionality
+        const chatButton = document.getElementById('chatButton');
+        const chatContainer = document.getElementById('chatContainer');
+        const closeChat = document.getElementById('closeChat');
+        const chatInput = document.getElementById('chatInput');
+        const sendButton = document.getElementById('sendButton');
+        const chatMessages = document.getElementById('chatMessages');
+
+        let messageId = 1;
+
+        chatButton.addEventListener('click', () => {
+            chatButton.style.display = 'none';
+            chatContainer.style.display = 'block';
+            lucide.createIcons();
+        });
+
+        closeChat.addEventListener('click', () => {
+            chatContainer.style.display = 'none';
+            chatButton.style.display = 'flex';
+        });
+
+        function generateBotResponse(userMessage) {
+            const lowerMessage = userMessage.toLowerCase();
+
+            // Détection du budget
+            if (lowerMessage.includes('budget') || userMessage.match(/\d+[km]?€?/i)) {
+                const budgetMatch = userMessage.match(/(\d+[km]?)/i);
+                if (budgetMatch) {
+                    return `Excellent ! Un budget de ${budgetMatch[1]}€ ouvre de belles possibilités. Dans quelle ville souhaitez-vous rechercher ?`;
+                }
+                return "Parfait ! Quel est le montant approximatif de votre budget ? (ex: 500k€, 2M€)";
+            }
+
+            // Détection de la ville
+            const cities = ['paris', 'nice', 'bordeaux', 'lyon', 'marseille', 'cannes', 'monaco'];
+            const mentionedCity = cities.find(city => lowerMessage.includes(city));
+            if (mentionedCity) {
+                return `${mentionedCity.charAt(0).toUpperCase() + mentionedCity.slice(1)} est un excellent choix ! Quel type de bien recherchez-vous ? (Villa, Appartement, Maison, etc.)`;
+            }
+
+            // Détection du type de bien
+            const propertyTypes = ['villa', 'appartement', 'maison', 'penthouse', 'manoir'];
+            const mentionedType = propertyTypes.find(type => lowerMessage.includes(type));
+            if (mentionedType) {
+                return `Parfait ! Un ${mentionedType} correspond bien à vos critères. Avez-vous des exigences particulières ? (Piscine, Terrasse, Vue mer, etc.)`;
+            }
+
+            // Réponses par défaut
+            if (lowerMessage.includes('bonjour') || lowerMessage.includes('salut')) {
+                return "Bonjour ! Je suis là pour vous aider à trouver la propriété idéale. Commençons par votre budget approximatif.";
+            }
+
+            if (lowerMessage.includes('merci')) {
+                return "De rien ! Je suis là pour vous aider. Avez-vous d'autres questions sur nos propriétés ?";
+            }
+
+            return "Je comprends. Pouvez-vous me donner plus de détails sur vos critères ? (Budget, Localisation, Type de bien)";
+        }
+
+        function addMessage(text, sender) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `flex gap-3 ${sender === 'user' ? 'justify-end' : 'justify-start'} chat-message`;
+
+            if (sender === 'bot') {
+                messageDiv.innerHTML = `
+                    <div class="w-8 h-8 bg-aura-gold rounded-full flex items-center justify-center flex-shrink-0">
+                        <i data-lucide="bot" class="w-5 h-5 text-black"></i>
+                    </div>
+                    <div class="max-w-[75%] rounded-2xl px-4 py-3 bg-white/10 text-aura-cream border border-aura-gold/20">
+                        <p class="text-sm leading-relaxed">${text}</p>
+                    </div>
+                `;
+            } else {
+                messageDiv.innerHTML = `
+                    <div class="max-w-[75%] rounded-2xl px-4 py-3 bg-aura-gold text-black">
+                        <p class="text-sm leading-relaxed">${text}</p>
+                    </div>
+                    <div class="w-8 h-8 bg-aura-gold/20 rounded-full flex items-center justify-center flex-shrink-0">
+                        <i data-lucide="user" class="w-5 h-5 text-aura-gold"></i>
+                    </div>
+                `;
+            }
+
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+            lucide.createIcons();
+        }
+
+        function sendMessage() {
+            const message = chatInput.value.trim();
+            if (!message) return;
+
+            addMessage(message, 'user');
+            chatInput.value = '';
+
+            // Réponse bot après 1 seconde
+            setTimeout(() => {
+                const botResponse = generateBotResponse(message);
+                addMessage(botResponse, 'bot');
+            }, 1000);
+        }
+
+        sendButton.addEventListener('click', sendMessage);
+        chatInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+
+        // Search form
+        document.getElementById('searchForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const query = document.getElementById('searchInput').value;
+            console.log('Recherche IA:', query);
+            alert(`Recherche lancée : "${query}"\n\n(L'IA analyserait cette requête en production)`);
+        });
+    </script>
+</body>
+
+</html>
