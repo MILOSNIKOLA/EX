@@ -166,6 +166,10 @@ body {
   padding: 0 24px;
 }
 
+.p {
+  
+}
+
 /* Center lists inside any .container and remove default bullets */
 .container ul {
   list-style: none;
