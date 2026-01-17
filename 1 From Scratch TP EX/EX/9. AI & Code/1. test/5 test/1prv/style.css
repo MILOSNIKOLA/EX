@@ -19,12 +19,12 @@
   --bg-section: #1e293b;
   --border-color: rgba(255, 255, 255, 0.1);
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4),
-    0 2px 4px -1px rgba(0, 0, 0, 0.3);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5),
-    0 4px 6px -2px rgba(0, 0, 0, 0.3);
-  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.6),
-    0 10px 10px -5px rgba(0, 0, 0, 0.4);
+  --shadow-md:
+    0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+  --shadow-lg:
+    0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
+  --shadow-xl:
+    0 20px 25px -5px rgba(0, 0, 0, 0.6), 0 10px 10px -5px rgba(0, 0, 0, 0.4);
   --shadow-glow: 0 0 30px rgba(99, 102, 241, 0.5);
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
@@ -141,7 +141,11 @@ html {
 }
 
 body {
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+  font-family:
+    "Inter",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
     sans-serif;
   color: #ffffff;
   line-height: 1.7;
@@ -167,7 +171,6 @@ body {
 }
 
 .p {
-  
 }
 
 /* Center lists inside any .container and remove default bullets */
@@ -199,7 +202,6 @@ body {
   content: "";
   color: transparent;
   font-size: 0;
-  
 }
 
 section {
@@ -222,7 +224,8 @@ section {
 }
 .navbar.scrolled {
   background: rgba(15, 23, 42, 0.95);
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.4),
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.4),
     0 2px 4px -1px rgba(0, 0, 0, 0.3);
 }
 
@@ -323,7 +326,9 @@ section {
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.3);
   transform: translate(-50%, -50%);
-  transition: width 0.6s, height 0.6s;
+  transition:
+    width 0.6s,
+    height 0.6s;
 }
 .btn:hover::before {
   width: 300px;
@@ -343,12 +348,14 @@ section {
 .btn.btn-primary {
   background: #6366f1;
   color: white;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5),
+  box-shadow:
+    0 10px 15px -3px rgba(0, 0, 0, 0.5),
     0 4px 6px -2px rgba(0, 0, 0, 0.3);
 }
 .btn.btn-primary:hover {
   transform: translateY(-3px);
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.6),
+  box-shadow:
+    0 20px 25px -5px rgba(0, 0, 0, 0.6),
     0 10px 10px -5px rgba(0, 0, 0, 0.4);
   background: #818cf8;
   color: white;
@@ -363,7 +370,8 @@ section {
   background: rgba(255, 255, 255, 0.1);
   border-color: rgba(255, 255, 255, 0.8);
   transform: translateY(-3px);
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.6),
+  box-shadow:
+    0 20px 25px -5px rgba(0, 0, 0, 0.6),
     0 10px 10px -5px rgba(0, 0, 0, 0.4);
 }
 
@@ -371,10 +379,39 @@ section {
   min-height: 100vh;
   display: flex;
   align-items: center;
-  padding-top: 100px;
+  /* padding-top: 00px; */
   position: relative;
   overflow: hidden;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+}
+
+.hero-top-section {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 8rem;
+  z-index: 10;
+}
+
+.hero-top-section .container {
+  text-align: center;
+}
+
+.hero-top-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 0.5rem;
+}
+
+.hero-top-subtitle {
+  font-size: 1.25rem;
+  opacity: 0.9;
+  color: white;
 }
 
 .hero-background {
@@ -392,7 +429,8 @@ section {
   left: 0;
   right: 0;
   bottom: 0;
-  background: radial-gradient(
+  background:
+    radial-gradient(
       circle at 20% 50%,
       rgba(99, 102, 241, 0.3) 0%,
       transparent 50%
@@ -551,18 +589,24 @@ section {
 .hero-image {
   position: relative;
   animation: fadeInRight 1s ease;
+  width: 100%;
+  height: 450px;
+  background-image: url(./img/462543990_1559883864915848_5090426175050659338_n.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: 100;
 }
 
 .hero-shape {
   width: 100%;
   height: 450px;
-  background: rgba(255, 255, 255, 0.15);
+  background: transparent;
   border-radius: 40px;
-  backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.2);
   position: relative;
   overflow: hidden;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+  box-shadow: none;
 }
 
 .shape-glow {
@@ -669,7 +713,8 @@ section {
 }
 .stat-item:hover {
   transform: translateY(-8px);
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.6),
+  box-shadow:
+    0 20px 25px -5px rgba(0, 0, 0, 0.6),
     0 10px 10px -5px rgba(0, 0, 0, 0.4);
   border-color: #818cf8;
 }
@@ -730,7 +775,8 @@ section {
 }
 .service-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.6),
+  box-shadow:
+    0 20px 25px -5px rgba(0, 0, 0, 0.6),
     0 10px 10px -5px rgba(0, 0, 0, 0.4);
   border-color: rgba(99, 102, 241, 0.3);
 }
@@ -804,7 +850,8 @@ section {
   overflow: hidden;
   position: relative;
   aspect-ratio: 4/3;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.4),
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.4),
     0 2px 4px -1px rgba(0, 0, 0, 0.3);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
@@ -823,7 +870,8 @@ section {
 }
 .portfolio-item:hover {
   transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.6),
+  box-shadow:
+    0 20px 25px -5px rgba(0, 0, 0, 0.6),
     0 10px 10px -5px rgba(0, 0, 0, 0.4);
 }
 .portfolio-item:hover::before {
@@ -960,7 +1008,8 @@ section {
 }
 .contact-detail-item:hover {
   border-color: #818cf8;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.4),
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.4),
     0 2px 4px -1px rgba(0, 0, 0, 0.3);
   transform: translateX(4px);
 }
@@ -987,7 +1036,8 @@ section {
   backdrop-filter: blur(10px);
   padding: 3rem;
   border-radius: 24px;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5),
+  box-shadow:
+    0 10px 15px -3px rgba(0, 0, 0, 0.5),
     0 4px 6px -2px rgba(0, 0, 0, 0.3);
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -1144,7 +1194,8 @@ section {
 .fade-in {
   opacity: 0;
   transform: translateY(40px);
-  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+  transition:
+    opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
     transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .fade-in.visible {
@@ -1165,7 +1216,8 @@ section {
     width: 100%;
     text-align: center;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5),
+    box-shadow:
+      0 10px 15px -3px rgba(0, 0, 0, 0.5),
       0 4px 6px -2px rgba(0, 0, 0, 0.3);
     padding: 2rem 0;
     gap: 0;
