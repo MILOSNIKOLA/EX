@@ -591,22 +591,38 @@ section {
   animation: fadeInRight 1s ease;
   width: 100%;
   height: 450px;
-  background-image: url(./img/462543990_1559883864915848_5090426175050659338_n.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
   z-index: 100;
+  overflow: hidden;
+  /* background-image: url(./img/me.jpg); */
+  /* background-size: 50%; */
+  /* background-repeat: no-repeat;
+  background-position: center; */
+}
+
+.hero-image-tag {
+  width: 50%;
+  height: 60%;
+  object-fit: cover;
+  border-radius: 100px;
+  position: absolute;
+  top:20%;
+  left: 25%;
+  /* background-size: 50%; */
+
 }
 
 .hero-shape {
-  width: 100%;
-  height: 450px;
+  width: 64%;
+  height: 64%;
   background: transparent;
-  border-radius: 40px;
+  border-radius: 100px;
   border: 1px solid rgba(255, 255, 255, 0.2);
   position: relative;
   overflow: hidden;
   box-shadow: none;
+  left: 17%;
+  right: 20%;
+  top: 18%;
 }
 
 .shape-glow {
