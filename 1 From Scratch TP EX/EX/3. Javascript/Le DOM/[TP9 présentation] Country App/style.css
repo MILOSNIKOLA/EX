@@ -1,0 +1,79 @@
+.filter-container {
+  text-align: center;
+  padding: 30px 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-bottom: 3px solid #764ba2;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+input {
+  margin: 15px auto;
+  display: block;
+  font-size: 1.4rem;
+  text-align: center;
+  transition: 0.3s;
+  padding: 12px 15px;
+  border: 2px solid #667eea;
+  border-radius: 25px;
+  background: white;
+  color: #333;
+}
+
+input:focus {
+  border-radius: 30px;
+  background: #f0f0f0;
+  border-color: #764ba2;
+  box-shadow: 0 0 15px rgba(102, 126, 234, 0.4);
+  outline: none;
+}
+
+.range-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+input[type="range"] {
+  width: 250px;
+  margin: 0 10px 10px 0;
+  height: 8px;
+  border-radius: 5px;
+  background: linear-gradient(to right, #667eea, #764ba2);
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: white;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  border: 2px solid #667eea;
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: white;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  border: 2px solid #667eea;
+}
+
+.range-container span {
+  font-size: 1.2rem;
+  transform: translateY(-3px);
+  color: white;
+  font-weight: bold;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 5px 12px;
+  border-radius: 20px;
+  min-width: 40px;
+}
