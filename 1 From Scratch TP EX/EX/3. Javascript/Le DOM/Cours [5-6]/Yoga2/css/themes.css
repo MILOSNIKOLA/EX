@@ -4,21 +4,21 @@
 
 :root {
   /* Theme Light (Default) */
-  --bg-primary: #ffffff;
-  --bg-secondary: #f7f9fc;
-  --bg-hover: #edf2f7;
+  --bg-primary: #f5f5f5;
+  --bg-secondary: #e8ebf0;
+  --bg-hover: #dce1e8;
 
   --text-primary: #2d3748;
   --text-secondary: #718096;
 
   --accent: #6b46c1;
   --accent-hover: #553c9a;
-  --accent-light: #e9d8fd;
+  --accent-light: #d4c5f0;
 
-  --border: #e2e8f0;
+  --border: #d0d7e0;
 
-  --gradient-start: #faf5ff;
-  --gradient-end: #e9d8fd;
+  --gradient-start: #ede8f5;
+  --gradient-end: #d4c5f0;
 
   --success: #48bb78;
   --error: #f56565;
