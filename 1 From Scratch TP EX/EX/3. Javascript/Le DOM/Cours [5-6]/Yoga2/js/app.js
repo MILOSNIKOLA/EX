@@ -79,12 +79,19 @@ function createSessionCard(session) {
     advanced: "Avancé",
   };
 
+  const freeOrPremium = session.free
+    ? '<span class="free-badge">Gratuit</span>'
+    : '<span class="premium-badge">Premium</span>';
+
   return `
         <div class="session-card" data-session-id="${session.id}">
             <div class="session-image">🧘‍♀️</div>
             <div class="session-content">
                 <div class="session-header">
-                    <span class="session-badge">${levelLabels[session.level] || session.level}</span>
+                    <div class="badges">
+                        ${freeOrPremium}
+                        <span class="session-badge">${levelLabels[session.level] || session.level}</span>
+                    </div>
                     <span class="session-duration">${session.duration} min</span>
                 </div>
                 <h3 class="session-title">${session.title}</h3>
@@ -114,6 +121,7 @@ function initializeSampleData() {
         duration: 15,
         level: "beginner",
         type: "hatha",
+        free: true,
         objectives: ["détente", "mobilité"],
         poses: [
           {
@@ -153,6 +161,7 @@ function initializeSampleData() {
         duration: 30,
         level: "intermediate",
         type: "vinyasa",
+        free: false,
         objectives: ["renforcement", "énergie"],
         poses: [
           {
@@ -196,6 +205,7 @@ function initializeSampleData() {
         duration: 20,
         level: "beginner",
         type: "yin",
+        free: true,
         objectives: ["détente", "calme"],
         poses: [
           {
@@ -234,6 +244,7 @@ function initializeSampleData() {
         duration: 20,
         level: "beginner",
         type: "hatha",
+        free: false,
         objectives: ["mobilité", "soulagement"],
         poses: [
           {
