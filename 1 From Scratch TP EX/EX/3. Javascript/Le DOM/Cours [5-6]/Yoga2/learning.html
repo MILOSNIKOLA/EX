@@ -1,40 +1,75 @@
 <!doctype html>
-<html lang="fr">
+<html lang="fr" data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Apprentissage - Yoga App</title>
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="stylesheet" href="css/themes.css" />
+    <link rel="stylesheet" href="css/dashboard.css" />
     <link rel="stylesheet" href="css/learning.css" />
   </head>
   <body class="learning-page">
     <!-- Navbar -->
-    <nav class="navbar">
+    <nav class="dashboard-navbar">
       <div class="navbar-container">
-        <a href="dashboard.html" class="logo">🧘‍♀️ Yoga App</a>
-
-        <div class="nav-menu">
-          <a href="sessions.html" class="nav-link">Séances</a>
-          <a href="respirer.html" class="nav-link">Respiration</a>
-          <a href="progress.html" class="nav-link">Progression</a>
-          <a href="learning.html" class="nav-link active">Apprentissage</a>
+        <a href="index.html" class="navbar-logo">
+          <span class="logo-icon">🧘</span>
+          <span class="logo-text">Yoga App</span>
+        </a>
+        <div class="navbar-menu">
+          <a href="sessions.html" class="navbar-link">Séances</a>
+          <a href="respirer.html" class="navbar-link">Respiration</a>
+          <a href="progress.html" class="navbar-link">Progression</a>
+          <a href="learning.html" class="navbar-link active">Apprentissage</a>
         </div>
-
-        <div class="nav-actions">
+        <div class="navbar-actions">
           <button
             id="theme-toggle"
-            class="theme-toggle"
-            aria-label="Changer de thème"
+            class="theme-toggle-nav"
+            aria-label="Toggle theme"
           >
-            <span class="theme-icon">🌙</span>
+            <svg
+              class="sun-icon"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+            >
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+            <svg
+              class="moon-icon hidden"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+            >
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
           </button>
-          <button
-            id="logout-btn"
-            class="btn-logout"
-            aria-label="Se déconnecter"
-          >
-            <span>Déconnexion</span>
+          <button id="logout-btn" class="btn-logout" aria-label="Déconnexion">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+            >
+              <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+              <polyline points="16 17 21 12 16 7"></polyline>
+              <line x1="21" y1="12" x2="9" y2="12"></line>
+            </svg>
           </button>
         </div>
       </div>
@@ -105,6 +140,53 @@
       </div>
     </div>
 
+    <!-- Footer will be loaded dynamically -->
+    <div id="footer-container"></div>
+
+    <!-- Note: Footer populated by footer-loader.js -->
+    <!--<footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h4>Yoga App</h4>
+            <p>Votre compagnon de pratique au quotidien</p>
+          </div>
+
+          <div class="footer-section">
+            <h4>Explorer</h4>
+            <ul>
+              <li><a href="sessions.html">Séances</a></li>
+              <li><a href="respirer.html">Respiration</a></li>
+              <li><a href="learning.html">Apprendre</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-section">
+            <h4>Compte</h4>
+            <ul>
+              <li><a href="login.html">Connexion</a></li>
+              <li><a href="register.html">Inscription</a></li>
+              <li><a href="dashboard.html">Mon espace</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-section">
+            <h4>Légal</h4>
+            <ul>
+              <li><a href="confidentialite.html">Confidentialité</a></li>
+              <li><a href="cgu.html">CGU</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>&copy; 2026 Yoga App. Fait avec ❤️ pour votre bien-être.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/footer-loader.js"></script>
     <script src="js/theme.js"></script>
     <script src="js/auth.js"></script>
     <script src="js/learning.js"></script>
