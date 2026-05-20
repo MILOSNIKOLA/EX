@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mini Chatbot IA</title>
+  <style>
+    :root{
+      --bg:#f4f7fb;
+      --panel:#ffffff;
+      --panel-2:#f8fafc;
+      --text:#0f172a;
+      --muted:#64748b;
+      --line:rgba(15,23,42,.08);
+      --primary:#6d28d9;
+      --primary-2:#06b6d4;
+      --user:#6d28d9;
+      --bot:#e2e8f0;
+      --shadow:0 20px 50px rgba(15,23,42,.12);
+    }
+
+    [data-theme="dark"]{
+      --bg:#08111f;
+      --panel:#0f172a;
+      --panel-2:#111c31;
+      --text:#e5eefc;
+      --muted:#94a3b8;
+      --line:rgba(255,255,255,.08);
+      --primary:#8b5cf6;
+      --primary-2:#22d3ee;
+      --user:#8b5cf6;
+      --bot:#18243a;
+      --shadow:0 20px 50px rgba(0,0,0,.35);
+    }
+
+    *{box-sizing:border-box;font-family:Inter,system-ui,Arial,sans-serif}
+    body{
+      margin:0;
+      min-height:100vh;
+      background:
+        radial-gradient(circle at top left, rgba(109,40,217,.18), transparent 26%),
+        radial-gradient(circle at top right, rgba(6,182,212,.14), transparent 24%),
+        linear-gradient(180deg,var(--bg),var(--bg));
+      color:var(--text);
+      display:grid;
+      place-items:center;
+      padding:16px;
+    }
+
+    .app{
+      width:min(100%, 980px);
+      display:grid;
+      grid-template-columns: 1fr 300px;
+      gap:16px;
+    }
+
+    .chat-shell, .side-shell{
+      background:var(--panel);
+      border:1px solid var(--line);
+      border-radius:24px;
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+
+    .topbar{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:16px 18px;
+      border-bottom:1px solid var(--line);
+      background:linear-gradient(135deg, rgba(109,40,217,.08), rgba(6,182,212,.06));
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+
+    .logo{
+      width:42px;height:42px;border-radius:14px;
+      background:linear-gradient(135deg,var(--primary),var(--primary-2));
+      display:grid;place-items:center;
+      color:white;font-weight:800;
+      box-shadow:0 10px 20px rgba(109,40,217,.2);
+    }
+
+    .title{
+      font-weight:800;
+      font-size:1rem;
+    }
+
+    .subtitle{
+      color:var(--muted);
+      font-size:.86rem;
+    }
+
+    .actions{
+      display:flex;
+      gap:8px;
+      align-items:center;
+    }
+
+    .icon-btn{
+      border:none;
+      background:var(--panel-2);
+      color:var(--text);
+      width:42px;height:42px;
+      border-radius:14px;
+      cursor:pointer;
+      border:1px solid var(--line);
+      transition:.2s ease;
+    }
+
+    .icon-btn:hover{transform:translateY(-1px)}
+
+    .chat{
+      display:flex;
+      flex-direction:column;
+      height:78vh;
+      min-height:640px;
+    }
+
+    .messages{
+      flex:1;
+      overflow:auto;
+      padding:18px;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      scroll-behavior:smooth;
+    }
+
+    .message{
+      max-width:78%;
+      padding:12px 14px;
+      border-radius:18px;
+      line-height:1.55;
+      animation:pop .18s ease;
+      border:1px solid transparent;
+      white-space:pre-wrap;
+      word-wrap:break-word;
+    }
+
+    @keyframes pop{
+      from{transform:translateY(8px);opacity:0}
+      to{transform:none;opacity:1}
+    }
+
+    .user{
+      align-self:flex-end;
+      background:linear-gradient(135deg,var(--user),#4f46e5);
+      color:white;
+      border-bottom-right-radius:6px;
+    }
+
+    .bot{
+      align-self:flex-start;
+      background:var(--bot);
+      color:var(--text);
+      border-bottom-left-radius:6px;
+      border-color:var(--line);
+    }
+
+    .meta{
+      font-size:.78rem;
+      color:var(--muted);
+      margin-top:6px;
+    }
+
+    .composer{
+      padding:14px;
+      border-top:1px solid var(--line);
+      background:var(--panel);
+    }
+
+    .quick{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      margin-bottom:12px;
+    }
+
+    .chip{
+      border:none;
+      cursor:pointer;
+      background:var(--panel-2);
+      color:var(--text);
+      border:1px solid var(--line);
+      border-radius:999px;
+      padding:8px 12px;
+      font-size:.9rem;
+      transition:.2s ease;
+    }
+
+    .chip:hover{transform:translateY(-1px)}
+
+    .input-row{
+      display:flex;
+      gap:10px;
+      align-items:center;
+    }
+
+    .input{
+      flex:1;
+      border:none;
+      outline:none;
+      background:var(--panel-2);
+      color:var(--text);
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:14px 16px;
+      font-size:1rem;
+    }
+
+    .send{
+      border:none;
+      border-radius:16px;
+      padding:14px 18px;
+      background:linear-gradient(135deg,var(--primary),var(--primary-2));
+      color:white;
+      font-weight:700;
+      cursor:pointer;
+      box-shadow:0 10px 18px rgba(109,40,217,.22);
+    }
+
+    .side-shell{
+      display:flex;
+      flex-direction:column;
+      height:78vh;
+      min-height:640px;
+    }
+
+    .panel{
+      padding:16px;
+      border-bottom:1px solid var(--line);
+    }
+
+    .panel h3{
+      margin:0 0 10px;
+      font-size:1rem;
+    }
+
+    .stats{
+      display:grid;
+      gap:10px;
+    }
+
+    .stat{
+      background:var(--panel-2);
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:12px;
+    }
+
+    .stat .label{
+      color:var(--muted);
+      font-size:.84rem;
+    }
+
+    .stat .value{
+      font-size:1.1rem;
+      font-weight:800;
+      margin-top:4px;
+    }
+
+    .history{
+      flex:1;
+      overflow:auto;
+      padding:16px;
+    }
+
+    .history-item{
+      background:var(--panel-2);
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:10px 12px;
+      margin-bottom:10px;
+      cursor:pointer;
+      transition:.2s ease;
+    }
+
+    .history-item:hover{transform:translateY(-1px)}
+    .history-item .q{font-weight:700;font-size:.92rem}
+    .history-item .a{color:var(--muted);font-size:.88rem;margin-top:4px}
+
+    .footer-actions{
+      display:flex;
+      gap:8px;
+      padding:16px;
+      border-top:1px solid var(--line);
+    }
+
+    .ghost{
+      flex:1;
+      border:none;
+      cursor:pointer;
+      padding:12px;
+      border-radius:14px;
+      background:var(--panel-2);
+      color:var(--text);
+      border:1px solid var(--line);
+    }
+
+    .typing{
+      display:inline-flex;
+      gap:4px;
+      align-items:center;
+    }
+
+    .dot{
+      width:7px;height:7px;border-radius:50%;
+      background:var(--muted);
+      animation:blink 1s infinite ease-in-out;
+    }
+    .dot:nth-child(2){animation-delay:.15s}
+    .dot:nth-child(3){animation-delay:.3s}
+    @keyframes blink{0%,80%,100%{opacity:.25;transform:translateY(0)}40%{opacity:1;transform:translateY(-2px)}}
+
+    @media (max-width: 900px){
+      .app{grid-template-columns:1fr}
+      .chat,.side-shell{height:auto;min-height:unset}
+      .side-shell{order:-1}
+    }
+
+    @media (max-width: 520px){
+      .message{max-width:92%}
+      .input-row{flex-wrap:wrap}
+      .send{width:100%}
+      .input{width:100%}
+      .quick{display:none}
+    }
+  </style>
+</head>
+<body data-theme="dark">
+  <div class="app">
+    <section class="chat-shell">
+      <div class="topbar">
+        <div class="brand">
+          <div class="logo">AI</div>
+          <div>
+            <div class="title">Mini Chatbot IA</div>
+            <div class="subtitle">HTML • CSS • JavaScript</div>
+          </div>
+        </div>
+        <div class="actions">
+          <button class="icon-btn" id="themeBtn" title="Mode sombre/clair">☾</button>
+          <button class="icon-btn" id="clearBtn" title="Effacer le chat">⌫</button>
+        </div>
+      </div>
+
+      <div id="messages" class="messages" aria-live="polite"></div>
+
+      <div class="composer">
+        <div class="quick">
+          <button class="chip" data-q="Bonjour">Bonjour</button>
+          <button class="chip" data-q="Aide-moi à créer un site">Créer un site</button>
+          <button class="chip" data-q="Explique le HTML">HTML</button>
+          <button class="chip" data-q="Donne-moi une idée de projet">Idée projet</button>
+        </div>
+
+        <div class="input-row">
+          <input id="input" class="input" type="text" placeholder="Écris ton message..." autocomplete="off" />
+          <button id="sendBtn" class="send">Envoyer</button>
+        </div>
+      </div>
+    </section>
+
+    <aside class="side-shell">
+      <div class="panel">
+        <h3>Fonctions</h3>
+        <div class="stats">
+          <div class="stat">
+            <div class="label">Réponses rapides</div>
+            <div class="value">Oui</div>
+          </div>
+          <div class="stat">
+            <div class="label">Historique local</div>
+            <div class="value">localStorage</div>
+          </div>
+          <div class="stat">
+            <div class="label">Mobile</div>
+            <div class="value">Responsive</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel" style="border-bottom:none">
+        <h3>Historique</h3>
+      </div>
+      <div id="history" class="history"></div>
+
+      <div class="footer-actions">
+        <button class="ghost" id="exportBtn">Exporter</button>
+        <button class="ghost" id="demoBtn">Démo</button>
+      </div>
+    </aside>
+  </div>
+
+  <script>
+    const body = document.body;
+    const input = document.getElementById('input');
+    const sendBtn = document.getElementById('sendBtn');
+    const clearBtn = document.getElementById('clearBtn');
+    const themeBtn = document.getElementById('themeBtn');
+    const messages = document.getElementById('messages');
+    const historyEl = document.getElementById('history');
+    const exportBtn = document.getElementById('exportBtn');
+    const demoBtn = document.getElementById('demoBtn');
+    const quickBtns = document.querySelectorAll('.chip');
+
+    let history = JSON.parse(localStorage.getItem('mini_chat_history') || '[]');
+    let theme = localStorage.getItem('mini_chat_theme') || 'dark';
+
+    const botData = {
+      "bonjour": "Bonjour ! Je peux t’aider à coder un site, une landing page, un chatbot, ou une calculatrice.",
+      "salut": "Salut ! Dis-moi ce que tu veux créer, et je te prépare le code.",
+      "html": "HTML structure la page. Avec CSS tu gères le style, et avec JavaScript tu ajoutes l’interactivité.",
+      "css": "CSS sert à la mise en forme : couleurs, espacements, animations, responsive design.",
+      "javascript": "JavaScript rend la page dynamique : clics, formulaires, calculs, API, animations.",
+      "site": "Pour un site moderne, je te conseille : hero, CTA, sections, preuve sociale, footer, et design responsive.",
+      "projet": "Idée rapide : portfolio, landing page SaaS, mini chat IA, dashboard, boutique en ligne, ou page Netflix.",
+      "merci": "Avec plaisir. Je peux aussi te faire une version plus avancée avec mémoire, suggestions et commandes."
+    };
+
+    function save() {
+      localStorage.setItem('mini_chat_history', JSON.stringify(history));
+      localStorage.setItem('mini_chat_theme', theme);
+    }
+
+    function applyTheme() {
+      body.setAttribute('data-theme', theme);
+      themeBtn.textContent = theme === 'dark' ? '☾' : '☀';
+    }
+
+    function scrollBottom() {
+      messages.scrollTop = messages.scrollHeight;
+    }
+
+    function addMessage(text, sender, saveHistory = true) {
+      const item = document.createElement('div');
+      item.className = `message ${sender}`;
+      item.textContent = text;
+      messages.appendChild(item);
+      if (saveHistory) {
+        history.unshift({
+          q: sender === 'user' ? text : '',
+          a: sender === 'bot' ? text : '',
+          t: Date.now()
+        });
+        history = history.slice(0, 20);
+        save();
+        renderHistory();
+      }
+      scrollBottom();
+    }
+
+    function addTyping() {
+      const item = document.createElement('div');
+      item.className = 'message bot';
+      item.id = 'typing';
+      item.innerHTML = '<span class="typing"><span class="dot"></span><span class="dot"></span><span class="dot"></span></span>';
+      messages.appendChild(item);
+      scrollBottom();
+    }
+
+    function removeTyping() {
+      const t = document.getElementById('typing');
+      if (t) t.remove();
+    }
+
+    function getBotResponse(text) {
+      const t = text.toLowerCase().trim();
+
+      if (t.includes('calculatrice')) return "Oui — je peux te faire une calculatrice jolie, mobile, avec historique et mode sombre.";
+      if (t.includes('landing page')) return "Je peux te générer une landing page moderne avec hero, boutons, sections et responsive.";
+      if (t.includes('chatbot')) return "Tu es déjà en train de le tester. Je peux aussi lui ajouter mémoire, thèmes et commandes.";
+      if (t.includes('code')) return "Colle-moi ton besoin et je te donne directement le code complet en HTML/CSS/JS.";
+      if (t in botData) return botData[t];
+
+      for (const key in botData) {
+        if (t.includes(key)) return botData[key];
+      }
+
+      return "Je n’ai pas compris exactement, mais je peux t’aider à créer un site, une app, un composant UI, ou un script JS.";
+    }
+
+    async function sendMessage(text = input.value) {
+      const msg = text.trim();
+      if (!msg) return;
+      addMessage(msg, 'user');
+      input.value = '';
+      addTyping();
+
+      setTimeout(() => {
+        removeTyping();
+        const response = getBotResponse(msg);
+        addMessage(response, 'bot');
+      }, 650);
+    }
+
+    function renderHistory() {
+      historyEl.innerHTML = '';
+      history.forEach((h) => {
+        const div = document.createElement('div');
+        div.className = 'history-item';
+        div.innerHTML = `
+          <div class="q">${h.q || 'Message'}</div>
+          <div class="a">${h.a || 'Réponse'}</div>
+        `;
+        div.onclick = () => {
+          if (h.q) {
+            input.value = h.q;
+            input.focus();
+          }
+        };
+        historyEl.appendChild(div);
+      });
+    }
+
+    function initWelcome() {
+      messages.innerHTML = '';
+      addMessage("Bonjour 👋 Je suis ton mini chatbot IA. Pose-moi une question ou demande-moi du code.", 'bot', false);
+      scrollBottom();
+    }
+
+    sendBtn.addEventListener('click', () => sendMessage());
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') sendMessage();
+    });
+
+    clearBtn.addEventListener('click', () => {
+      messages.innerHTML = '';
+      history = [];
+      save();
+      renderHistory();
+      initWelcome();
+    });
+
+    themeBtn.addEventListener('click', () => {
+      theme = theme === 'dark' ? 'light' : 'dark';
+      applyTheme();
+      save();
+    });
+
+    exportBtn.addEventListener('click', () => {
+      const blob = new Blob([JSON.stringify(history, null, 2)], {type:'application/json'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'mini_chat_history.json';
+      a.click();
+      URL.revokeObjectURL(url);
+    });
+
+    demoBtn.addEventListener('click', () => {
+      input.value = "Aide-moi à créer une landing page moderne";
+      sendMessage();
+    });
+
+    quickBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        input.value = btn.dataset.q;
+        sendMessage();
+      });
+    });
+
+    applyTheme();
+    renderHistory();
+    initWelcome();
+  </script>
+</body>
+</html>
