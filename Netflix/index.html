@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StreamFlix</title>
+  <style>
+    :root{
+      --bg:#0b0b0f;
+      --panel:#14141a;
+      --text:#ffffff;
+      --muted:#b8b8c2;
+      --red:#e50914;
+      --red-dark:#b20710;
+      --card:#1b1b22;
+      --overlay:rgba(0,0,0,.55);
+    }
+
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+      font-family:Inter,system-ui,Arial,sans-serif;
+    }
+
+    body{
+      background:var(--bg);
+      color:var(--text);
+      min-height:100vh;
+    }
+
+    .hero{
+      min-height:100vh;
+      background:
+        linear-gradient(to bottom, rgba(0,0,0,.2), rgba(0,0,0,.75)),
+        url("https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1600&q=80") center/cover no-repeat;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:20px clamp(16px, 4vw, 48px);
+      position:sticky;
+      top:0;
+      z-index:10;
+      backdrop-filter: blur(10px);
+      background:rgba(0,0,0,.18);
+    }
+
+    .logo{
+      font-size:1.8rem;
+      font-weight:800;
+      color:var(--red);
+      letter-spacing:.5px;
+    }
+
+    .nav-links{
+      display:flex;
+      gap:18px;
+      align-items:center;
+    }
+
+    .nav-links a{
+      color:var(--text);
+      text-decoration:none;
+      font-size:.95rem;
+      opacity:.92;
+    }
+
+    .btn{
+      border:none;
+      border-radius:999px;
+      padding:12px 18px;
+      cursor:pointer;
+      font-weight:700;
+      transition:.2s ease;
+    }
+
+    .btn-red{
+      background:var(--red);
+      color:white;
+    }
+
+    .btn-red:hover{
+      background:var(--red-dark);
+    }
+
+    .btn-ghost{
+      background:rgba(255,255,255,.08);
+      color:white;
+    }
+
+    .hero-content{
+      max-width:760px;
+      padding:clamp(48px, 10vw, 110px) clamp(16px, 4vw, 48px) 48px;
+      position:relative;
+      z-index:1;
+    }
+
+    .badge{
+      display:inline-block;
+      background:rgba(255,255,255,.12);
+      border:1px solid rgba(255,255,255,.12);
+      padding:8px 14px;
+      border-radius:999px;
+      color:#fff;
+      font-size:.85rem;
+      margin-bottom:18px;
+    }
+
+    h1{
+      font-size:clamp(2.4rem, 6vw, 5rem);
+      line-height:1;
+      margin-bottom:18px;
+      text-shadow:0 10px 30px rgba(0,0,0,.5);
+    }
+
+    .desc{
+      color:var(--muted);
+      font-size:1.05rem;
+      line-height:1.7;
+      max-width:620px;
+      margin-bottom:28px;
+    }
+
+    .actions{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-bottom:28px;
+    }
+
+    .stats{
+      display:flex;
+      gap:20px;
+      flex-wrap:wrap;
+      color:#ddd;
+      font-size:.95rem;
+    }
+
+    .section{
+      padding:26px clamp(16px, 4vw, 48px) 42px;
+    }
+
+    .section h2{
+      margin-bottom:16px;
+      font-size:1.25rem;
+    }
+
+    .row{
+      display:grid;
+      grid-auto-flow:column;
+      grid-auto-columns:minmax(160px, 1fr);
+      gap:14px;
+      overflow-x:auto;
+      padding-bottom:6px;
+      scroll-snap-type:x proximity;
+    }
+
+    .row::-webkit-scrollbar{
+      height:8px;
+    }
+
+    .row::-webkit-scrollbar-thumb{
+      background:#2a2a35;
+      border-radius:999px;
+    }
+
+    .card{
+      background:var(--card);
+      border-radius:18px;
+      overflow:hidden;
+      min-height:240px;
+      scroll-snap-align:start;
+      box-shadow:0 12px 28px rgba(0,0,0,.28);
+      transition:transform .2s ease;
+      cursor:pointer;
+    }
+
+    .card:hover{
+      transform:translateY(-4px) scale(1.01);
+    }
+
+    .poster{
+      height:180px;
+      background-size:cover;
+      background-position:center;
+      position:relative;
+    }
+
+    .poster::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(to top, rgba(0,0,0,.55), transparent);
+    }
+
+    .card-body{
+      padding:12px 12px 14px;
+    }
+
+    .title-card{
+      font-weight:700;
+      margin-bottom:6px;
+    }
+
+    .meta{
+      color:var(--muted);
+      font-size:.9rem;
+    }
+
+    .footer{
+      padding:18px clamp(16px, 4vw, 48px) 34px;
+      color:var(--muted);
+      font-size:.92rem;
+    }
+
+    .menu-btn{
+      display:none;
+      background:transparent;
+      border:1px solid rgba(255,255,255,.16);
+      color:white;
+      padding:10px 14px;
+      border-radius:12px;
+      cursor:pointer;
+    }
+
+    @media (max-width: 768px){
+      .nav-links{
+        display:none;
+      }
+      .menu-btn{
+        display:inline-flex;
+      }
+      .hero-content{
+        padding-top:84px;
+      }
+      .desc{
+        font-size:1rem;
+      }
+      .actions .btn{
+        width:100%;
+      }
+    }
+
+    .mobile-menu{
+      display:none;
+      position:absolute;
+      right:16px;
+      top:72px;
+      background:rgba(10,10,15,.97);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:16px;
+      padding:14px;
+      min-width:220px;
+      z-index:20;
+    }
+
+    .mobile-menu a{
+      display:block;
+      color:white;
+      text-decoration:none;
+      padding:10px 6px;
+    }
+
+    .mobile-menu.open{
+      display:block;
+    }
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <header class="nav">
+      <div class="logo">StreamFlix</div>
+      <nav class="nav-links">
+        <a href="#tendances">Tendances</a>
+        <a href="#series">Séries</a>
+        <a href="#films">Films</a>
+        <button class="btn btn-red">Se connecter</button>
+      </nav>
+      <button class="menu-btn" onclick="toggleMenu()">Menu</button>
+      <div id="mobileMenu" class="mobile-menu">
+        <a href="#tendances">Tendances</a>
+        <a href="#series">Séries</a>
+        <a href="#films">Films</a>
+        <a href="#">Se connecter</a>
+      </div>
+    </header>
+
+    <section class="hero-content">
+      <div class="badge">Nouveau • Série exclusive</div>
+      <h1>Regarde les meilleurs films et séries, partout.</h1>
+      <p class="desc">
+        Une page d’accueil moderne inspirée des plateformes de streaming : visuel immersif,
+        CTA clair, sections de contenus et navigation responsive.
+      </p>
+      <div class="actions">
+        <button class="btn btn-red">Lire maintenant</button>
+        <button class="btn btn-ghost">Ajouter à ma liste</button>
+      </div>
+      <div class="stats">
+        <span>HD / 4K</span>
+        <span>Adapté mobile</span>
+        <span>Mode sombre</span>
+      </div>
+    </section>
+  </div>
+
+  <section class="section" id="tendances">
+    <h2>Tendances du moment</h2>
+    <div class="row">
+      <div class="card">
+        <div class="poster" style="background-image:url('https://images.unsplash.com/photo-1522869635100-9f4c5e86aa37?auto=format&fit=crop&w=900&q=80')"></div>
+        <div class="card-body">
+          <div class="title-card">Night Shift</div>
+          <div class="meta">Action • 2026</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="poster" style="background-image:url('https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=900&q=80')"></div>
+        <div class="card-body">
+          <div class="title-card">Metro Drive</div>
+          <div class="meta">Thriller • 8 épisodes</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="poster" style="background-image:url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=900&q=80')"></div>
+        <div class="card-body">
+          <div class="title-card">Cinema House</div>
+          <div class="meta">Drame • Film</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="poster" style="background-image:url('https://images.unsplash.com/photo-1509347528160-9a9e33742cdb?auto=format&fit=crop&w=900&q=80')"></div>
+        <div class="card-body">
+          <div class="title-card">Retro Wave</div>
+          <div class="meta">Science-fiction • 2025</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="series">
+    <h2>Séries populaires</h2>
+    <div class="row">
+      <div class="card"><div class="poster" style="background-image:url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=900&q=80')"></div><div class="card-body"><div class="title-card">City Lines</div><div class="meta">Saison 2</div></div></div>
+      <div class="card"><div class="poster" style="background-image:url('https://images.unsplash.com/photo-1518676590629-3dcbd9d0d597?auto=format&fit=crop&w=900&q=80')"></div><div class="card-body"><div class="title-card">Hidden Code</div><div class="meta">Suspense</div></div></div>
+      <div class="card"><div class="poster" style="background-image:url('https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=900&q=80')"></div><div class="card-body"><div class="title-card">Echo Room</div><div class="meta">Mini-série</div></div></div>
+    </div>
+  </section>
+
+  <section class="section" id="films">
+    <h2>Films à découvrir</h2>
+    <div class="row">
+      <div class="card"><div class="poster" style="background-image:url('https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=900&q=80')"></div><div class="card-body"><div class="title-card">Golden Frame</div><div class="meta">Comédie</div></div></div>
+      <div class="card"><div class="poster" style="background-image:url('https://images.unsplash.com/photo-1502139214982-d0ad755818d8?auto=format&fit=crop&w=900&q=80')"></div><div class="card-body"><div class="title-card">Deep Blue</div><div class="meta">Aventure</div></div></div>
+      <div class="card"><div class="poster" style="background-image:url('https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=900&q=80')"></div><div class="card-body"><div class="title-card">After Dark</div><div class="meta">Horreur</div></div></div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    Page démo style plateforme de streaming, responsive et facile à personnaliser.
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('mobileMenu').classList.toggle('open');
+    }
+    document.addEventListener('click', (e) => {
+      const menu = document.getElementById('mobileMenu');
+      const btn = document.querySelector('.menu-btn');
+      if (!menu.contains(e.target) && !btn.contains(e.target)) {
+        menu.classList.remove('open');
+      }
+    });
+  </script>
+</body>
+</html>
