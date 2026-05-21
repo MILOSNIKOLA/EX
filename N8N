@@ -1,0 +1,419 @@
+Architecture complète (100% local au départ)
+
+Tu vas avoir :
+
+n8n → automatisation
+Ollama → IA locale
+VS Code → développement
+Continue.dev → agent IA dans VS Code
+Open Interpreter → agent terminal autonome
+AutoGPT → agents autonomes
+Supabase → backend + auth + DB
+PostgreSQL → base de données
+LangChain → orchestration IA
+Qdrant → mémoire vectorielle IA
+Docker Desktop → containers
+GitHub Desktop → Git simplifié
+Ce que ton système fera
+
+Ton agent pourra :
+
+détecter un bug
+analyser les logs
+demander à Ollama une correction
+modifier le code
+lancer des tests
+commit automatiquement
+push sur GitHub
+stocker mémoire/contexte
+utiliser plusieurs outils IA
+agir depuis VS Code
+ÉTAPE 1 — Installer les outils Windows
+1. Installer Git
+
+Télécharge :
+
+Git for Windows
+
+Vérifie :
+
+git --version
+2. Installer Node.js LTS
+
+Télécharge :
+
+Node.js LTS
+
+Vérifie :
+
+node -v
+npm -v
+3. Installer Docker Desktop
+
+Télécharge :
+
+Docker Desktop
+
+Active :
+
+WSL2
+Virtualization BIOS
+
+Puis :
+
+docker --version
+4. Installer Ollama
+
+Télécharge :
+
+Ollama Windows
+
+Puis :
+
+ollama run llama3
+
+Modèles utiles :
+
+ollama pull llama3
+ollama pull mistral
+ollama pull codellama
+ollama pull deepseek-coder
+5. Installer VS Code
+
+Télécharge :
+
+VS Code
+
+Extensions :
+
+Continue
+Docker
+GitHub Copilot (optionnel)
+REST Client
+Thunder Client
+ÉTAPE 2 — Installer n8n local
+Méthode Docker (meilleure)
+
+Créer dossier :
+
+mkdir C:\ai-stack
+cd C:\ai-stack
+
+Créer fichier :
+
+docker-compose.yml
+
+Contenu :
+
+version: "3.9"
+
+services:
+
+  n8n:
+    image: n8nio/n8n
+    ports:
+      - "5678:5678"
+    environment:
+      - N8N_BASIC_AUTH_ACTIVE=true
+      - N8N_BASIC_AUTH_USER=admin
+      - N8N_BASIC_AUTH_PASSWORD=admin123
+    volumes:
+      - ./n8n_data:/home/node/.n8n
+
+  postgres:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: ai
+      POSTGRES_PASSWORD: ai123
+      POSTGRES_DB: aiagents
+    ports:
+      - "5432:5432"
+
+  qdrant:
+    image: qdrant/qdrant
+    ports:
+      - "6333:6333"
+
+  ollama:
+    image: ollama/ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ./ollama:/root/.ollama
+
+Lancer :
+
+docker compose up -d
+ÉTAPE 3 — Ouvrir n8n
+
+Va sur :
+
+http://localhost:5678
+
+Login :
+
+admin
+admin123
+ÉTAPE 4 — Connecter Ollama à n8n
+
+Dans n8n :
+
+Ajouter node :
+
+HTTP Request
+
+URL :
+
+http://host.docker.internal:11434/api/generate
+
+Méthode :
+
+POST
+
+Body JSON :
+
+{
+  "model": "deepseek-coder",
+  "prompt": "Corrige ce bug JavaScript"
+}
+ÉTAPE 5 — Agent IA GitHub automatique
+Fonctionnement
+
+Workflow :
+
+GitHub → Bug détecté
+↓
+n8n
+↓
+Ollama analyse
+↓
+Open Interpreter modifie
+↓
+Git commit
+↓
+Git push automatique
+Workflow JSON prêt à importer dans n8n
+
+Crée workflow :
+
+{
+  "name": "Auto GitHub AI Agent",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "github-trigger",
+      "name": "GitHub Trigger",
+      "type": "n8n-nodes-base.githubTrigger",
+      "typeVersion": 1,
+      "position": [200, 300]
+    },
+    {
+      "parameters": {
+        "requestMethod": "POST",
+        "url": "http://host.docker.internal:11434/api/generate",
+        "jsonParameters": true,
+        "options": {},
+        "bodyParametersJson": "{\n  \"model\": \"deepseek-coder\",\n  \"prompt\": \"Analyse le bug et propose un correctif\"\n}"
+      },
+      "id": "ollama",
+      "name": "Ollama Fix",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [500, 300]
+    },
+    {
+      "parameters": {
+        "command": "git add . && git commit -m \"AI Fix\" && git push"
+      },
+      "id": "push",
+      "name": "Push GitHub",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [800, 300]
+    }
+  ],
+  "connections": {
+    "GitHub Trigger": {
+      "main": [
+        [
+          {
+            "node": "Ollama Fix",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ollama Fix": {
+      "main": [
+        [
+          {
+            "node": "Push GitHub",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  }
+}
+ÉTAPE 6 — Open Interpreter
+
+Installer :
+
+pip install open-interpreter
+
+Lancer :
+
+interpreter
+
+Mode Ollama :
+
+interpreter --local
+ÉTAPE 7 — Continue.dev dans VS Code
+
+Installer extension :
+
+Continue.dev Extension
+
+Configurer :
+
+{
+  "models": [
+    {
+      "title": "DeepSeek",
+      "provider": "ollama",
+      "model": "deepseek-coder"
+    }
+  ]
+}
+ÉTAPE 8 — Supabase local
+
+Installer CLI :
+
+Supabase CLI
+
+Lancer :
+
+npx supabase start
+
+Tu obtiens :
+
+PostgreSQL
+Auth
+API
+Storage
+
+localement.
+
+ÉTAPE 9 — LangChain + mémoire IA
+
+Installer :
+
+pip install langchain qdrant-client
+
+Exemple :
+
+from langchain.vectorstores import Qdrant
+
+Ton agent pourra :
+
+retenir conversations
+retenir bugs
+retrouver solutions anciennes
+ÉTAPE 10 — Multi-agents IA
+
+Architecture avancée :
+
+Agent 1 = analyse bug
+Agent 2 = écrit code
+Agent 3 = test
+Agent 4 = push GitHub
+
+Possible avec :
+
+LangGraph
+CrewAI
+AutoGen
+
+Liens :
+
+CrewAI
+Microsoft AutoGen
+LangGraph
+Structure idéale de ton projet
+ai-stack/
+│
+├── docker-compose.yml
+├── n8n/
+├── ollama/
+├── postgres/
+├── qdrant/
+├── agents/
+├── workflows/
+├── github-bot/
+└── vscode/
+Pour aller très loin ensuite
+
+Tu pourras ajouter :
+
+navigateur IA autonome
+génération de PR GitHub
+tests automatiques
+mémoire longue durée
+IA Discord/Telegram
+agent vocal
+génération frontend automatique
+auto-debug complet
+Stack IA locale recommandée en 2026
+Léger
+Ollama
+n8n
+Continue
+DeepSeek-Coder
+Puissant
+Ollama
+Qdrant
+LangChain
+CrewAI
+PostgreSQL
+Supabase
+Open Interpreter
+AutoGen
+Modèles Ollama recommandés
+Code
+ollama pull deepseek-coder
+ollama pull codellama
+ollama pull qwen2.5-coder
+Général
+ollama pull llama3
+ollama pull mistral
+Important
+
+Pour éviter les bugs Windows :
+
+Toujours lancer :
+
+Docker Desktop
+
+avant :
+
+docker compose up
+
+Et dans VS Code :
+
+Terminal → PowerShell Administrateur
+Résultat final
+
+Tu auras un système type :
+
+Dev IA autonome
+Auto-correction
+Auto-push GitHub
+Mémoire IA
+Multi-agents
+Full local
+Gratuit
+Compatible VS Code
+Évolutif cloud plus tard
